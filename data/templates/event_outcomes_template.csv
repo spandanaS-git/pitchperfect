@@ -1,0 +1,6 @@
+event_date,event_name,event_type,expected_attendance,actual_attendance,host_organization_type,revenue,cost,repeat_booking,host_rating,notes
+2026-02-14,Valentine Partner Flow & Sound,Studio Workshop,20,24,Studio,480.00,40.00,Y,5,"Exceeded room capacity; studio requested quarterly series."
+2026-03-21,Corporate Equinox Reset,Corporate Wellness,35,42,Tech Company,550.00,0.00,Y,5,"Full attendance; contract signed for monthly recurring sessions."
+2026-05-18,Outdoor Mindful Movement Pop-up,Festival,50,68,Park District,400.00,50.00,Y,5,"Crowd engagement was great; bilingual cues drew strong Spanish-speaking participation."
+2026-06-12,Teacher Appreciation Wellness Hour,School Workshop,25,28,Public School,350.00,15.00,Y,5,"Principal shared that staff reported lower burnout scores post-workshop."
+2026-07-22,Boutique Hotel Sunset Sound Bath,Hotel Residency,15,18,Boutique Hotel,300.00,0.00,Y,5,"Guest satisfaction 100%; hotel added morning session to permanent guest schedule."

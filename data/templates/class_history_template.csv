@@ -1,0 +1,6 @@
+class_date,class_time,class_type,capacity,attended,price,format,venue_type,venue_name,membership_type,client_id,first_visit,zip
+2026-01-06,07:00,Vinyasa Flow,20,18,22.00,In-person,Studio,Bloom Yoga Studio,Monthly Member,c_948a1,N,60647
+2026-01-06,12:00,Desk Worker Mobility,25,23,20.00,In-person,Corporate,Loop Tech Office,Corporate Sponsor,c_382d4,Y,60601
+2026-01-07,18:30,Candlelight Restorative,18,18,25.00,In-person,Studio,Bloom Yoga Studio,Drop-in,c_119e8,N,60647
+2026-01-08,09:00,Community Gentle Yoga,30,28,0.00,In-person,Park District,Wicker Park Fieldhouse,Scholarship/Sliding Scale,c_772a5,Y,60622
+2026-01-10,10:30,Weekend Breath & Movement,22,20,22.00,In-person,Studio,Bloom Yoga Studio,Drop-in,c_948a1,N,60647

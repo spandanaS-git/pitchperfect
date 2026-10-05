@@ -1,0 +1,530 @@
+class_date,class_time,class_type,capacity,attended,price,format,venue_type,venue_name,membership_type,client_id,first_visit,zip
+2025-04-01,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0004,Y,60647
+2025-04-02,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0049,Y,60601
+2025-04-03,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0041,N,60647
+2025-04-04,07:00,Morning Vinyasa,20,16,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0071,N,60647
+2025-04-05,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0040,Y,60622
+2025-04-06,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0048,Y,60647
+2025-04-08,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0013,N,60647
+2025-04-09,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0072,Y,60601
+2025-04-10,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0010,N,60647
+2025-04-11,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0020,N,60647
+2025-04-12,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0020,N,60622
+2025-04-13,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0043,Y,60647
+2025-04-15,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0026,N,60647
+2025-04-16,12:00,Desk Worker Mobility,30,19,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0022,N,60601
+2025-04-17,19:00,Candlelight Yin & Sound,20,14,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0072,N,60647
+2025-04-18,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0031,N,60647
+2025-04-19,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0050,N,60622
+2025-04-19,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0044,N,60622
+2025-04-20,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0060,N,60647
+2025-04-23,12:00,Desk Worker Mobility,30,21,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0063,N,60601
+2025-04-24,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0067,N,60647
+2025-04-25,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0069,N,60647
+2025-04-26,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0017,N,60622
+2025-04-26,11:00,Community Gentle Yoga,30,23,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0011,N,60622
+2025-04-27,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0076,N,60647
+2025-04-30,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0074,N,60601
+2025-05-01,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0080,N,60647
+2025-05-02,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0062,N,60647
+2025-05-03,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0045,N,60622
+2025-05-03,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0049,N,60622
+2025-05-04,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0053,N,60647
+2025-05-06,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0014,N,60647
+2025-05-07,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0035,N,60601
+2025-05-08,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0005,N,60647
+2025-05-09,07:00,Morning Vinyasa,20,15,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0051,N,60647
+2025-05-10,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0017,N,60622
+2025-05-10,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0036,N,60622
+2025-05-11,10:30,Restorative Breath & Flow,22,13,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0048,N,60647
+2025-05-13,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0028,N,60647
+2025-05-14,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0059,N,60601
+2025-05-16,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0023,N,60647
+2025-05-17,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0080,N,60622
+2025-05-17,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0057,N,60622
+2025-05-18,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0071,N,60647
+2025-05-20,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0043,N,60647
+2025-05-21,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0028,N,60601
+2025-05-22,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0074,N,60647
+2025-05-23,07:00,Morning Vinyasa,20,15,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0050,N,60647
+2025-05-24,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0016,N,60622
+2025-05-24,11:00,Community Gentle Yoga,30,22,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0023,N,60622
+2025-05-25,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0007,N,60647
+2025-05-27,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0046,N,60647
+2025-05-29,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0067,N,60647
+2025-05-30,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0066,N,60647
+2025-05-31,08:30,Saturday Sunrise Flow,35,29,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0060,N,60622
+2025-05-31,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0074,N,60622
+2025-06-01,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0017,N,60647
+2025-06-03,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0012,N,60647
+2025-06-04,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0013,N,60601
+2025-06-05,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0004,N,60647
+2025-06-06,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0041,N,60647
+2025-06-07,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0045,N,60622
+2025-06-07,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0021,N,60622
+2025-06-08,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0005,N,60647
+2025-06-10,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0025,N,60647
+2025-06-11,12:00,Desk Worker Mobility,30,27,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0029,N,60601
+2025-06-12,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0001,N,60647
+2025-06-13,07:00,Morning Vinyasa,20,15,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0051,N,60647
+2025-06-14,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0058,N,60622
+2025-06-14,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0019,N,60622
+2025-06-15,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0078,N,60647
+2025-06-17,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0061,N,60647
+2025-06-18,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0001,N,60601
+2025-06-19,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0029,N,60647
+2025-06-20,07:00,Morning Vinyasa,20,6,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0051,N,60647
+2025-06-21,08:30,Saturday Sunrise Flow,35,29,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0018,N,60622
+2025-06-21,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0066,N,60622
+2025-06-22,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0036,N,60647
+2025-06-24,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0041,N,60647
+2025-06-25,12:00,Desk Worker Mobility,30,19,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0005,N,60601
+2025-06-26,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0054,N,60647
+2025-06-27,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0060,N,60647
+2025-06-28,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0034,N,60622
+2025-06-28,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0057,N,60622
+2025-06-29,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0006,N,60647
+2025-07-01,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0036,N,60647
+2025-07-02,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0048,N,60601
+2025-07-03,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0022,N,60647
+2025-07-04,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0019,N,60647
+2025-07-05,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0055,N,60622
+2025-07-05,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0065,N,60622
+2025-07-06,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0031,N,60647
+2025-07-08,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0047,N,60647
+2025-07-09,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0007,N,60601
+2025-07-10,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0014,N,60647
+2025-07-11,07:00,Morning Vinyasa,20,9,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0042,N,60647
+2025-07-12,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0027,N,60622
+2025-07-12,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0012,N,60622
+2025-07-13,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0064,N,60647
+2025-07-15,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0030,N,60647
+2025-07-16,12:00,Desk Worker Mobility,30,21,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0017,N,60601
+2025-07-17,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0001,N,60647
+2025-07-18,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0007,N,60647
+2025-07-19,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0014,N,60622
+2025-07-19,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0027,N,60622
+2025-07-20,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0008,N,60647
+2025-07-22,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0056,N,60647
+2025-07-23,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0043,N,60601
+2025-07-24,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0059,N,60647
+2025-07-25,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0053,N,60647
+2025-07-26,08:30,Saturday Sunrise Flow,35,22,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0001,N,60622
+2025-07-26,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0029,N,60622
+2025-07-27,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0075,N,60647
+2025-07-29,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0027,N,60647
+2025-07-30,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0056,N,60601
+2025-07-31,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0002,N,60647
+2025-08-01,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0074,N,60647
+2025-08-02,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0006,N,60622
+2025-08-02,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0063,N,60622
+2025-08-05,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0065,N,60647
+2025-08-06,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0059,N,60601
+2025-08-07,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0058,N,60647
+2025-08-08,07:00,Morning Vinyasa,20,16,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0018,N,60647
+2025-08-09,08:30,Saturday Sunrise Flow,35,23,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0069,N,60622
+2025-08-09,11:00,Community Gentle Yoga,30,28,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0041,N,60622
+2025-08-10,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0075,N,60647
+2025-08-12,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0031,N,60647
+2025-08-13,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0056,N,60601
+2025-08-14,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0057,N,60647
+2025-08-15,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0079,N,60647
+2025-08-16,08:30,Saturday Sunrise Flow,35,23,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0031,N,60622
+2025-08-16,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0010,N,60622
+2025-08-17,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0079,N,60647
+2025-08-19,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0067,N,60647
+2025-08-20,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0062,N,60601
+2025-08-21,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0066,N,60647
+2025-08-22,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0068,N,60647
+2025-08-23,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0001,N,60622
+2025-08-23,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0044,N,60622
+2025-08-24,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0064,N,60647
+2025-08-26,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0012,N,60647
+2025-08-27,12:00,Desk Worker Mobility,30,27,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0029,N,60601
+2025-08-28,19:00,Candlelight Yin & Sound,20,14,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0074,N,60647
+2025-08-29,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0049,N,60647
+2025-08-30,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0074,N,60622
+2025-08-30,11:00,Community Gentle Yoga,30,28,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0078,N,60622
+2025-08-31,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0044,N,60647
+2025-09-02,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0061,N,60647
+2025-09-03,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0077,N,60601
+2025-09-04,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0050,N,60647
+2025-09-05,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0057,N,60647
+2025-09-06,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0033,N,60622
+2025-09-06,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0012,N,60622
+2025-09-07,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0018,N,60647
+2025-09-09,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0069,N,60647
+2025-09-10,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0011,N,60601
+2025-09-11,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0024,N,60647
+2025-09-13,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0036,N,60622
+2025-09-13,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0049,N,60622
+2025-09-14,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0061,N,60647
+2025-09-16,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0040,N,60647
+2025-09-17,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0003,N,60601
+2025-09-18,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0003,N,60647
+2025-09-19,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0075,N,60647
+2025-09-20,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0053,N,60622
+2025-09-21,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0050,N,60647
+2025-09-23,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0068,N,60647
+2025-09-24,12:00,Desk Worker Mobility,30,29,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0023,N,60601
+2025-09-25,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0053,N,60647
+2025-09-26,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0072,N,60647
+2025-09-27,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0068,N,60622
+2025-09-27,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0065,N,60622
+2025-09-28,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0060,N,60647
+2025-09-30,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0031,N,60647
+2025-10-01,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0012,N,60601
+2025-10-02,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0007,N,60647
+2025-10-03,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0042,N,60647
+2025-10-04,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0052,N,60622
+2025-10-04,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0058,N,60622
+2025-10-05,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0004,N,60647
+2025-10-07,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0080,N,60647
+2025-10-08,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0010,N,60601
+2025-10-09,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0036,N,60647
+2025-10-10,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0074,N,60647
+2025-10-11,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0006,N,60622
+2025-10-11,11:00,Community Gentle Yoga,30,28,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0073,N,60622
+2025-10-12,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0026,N,60647
+2025-10-14,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0063,N,60647
+2025-10-15,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0057,N,60601
+2025-10-16,19:00,Candlelight Yin & Sound,20,15,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0017,N,60647
+2025-10-17,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0009,N,60647
+2025-10-18,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0012,N,60622
+2025-10-19,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0068,N,60647
+2025-10-21,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0015,N,60647
+2025-10-22,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0046,N,60601
+2025-10-23,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0001,N,60647
+2025-10-24,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0060,N,60647
+2025-10-25,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0011,N,60622
+2025-10-25,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0009,N,60622
+2025-10-26,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0057,N,60647
+2025-10-28,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0080,N,60647
+2025-10-29,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0038,N,60601
+2025-10-30,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0048,N,60647
+2025-10-31,07:00,Morning Vinyasa,20,15,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0018,N,60647
+2025-11-01,08:30,Saturday Sunrise Flow,35,23,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0016,N,60622
+2025-11-01,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0041,N,60622
+2025-11-02,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0072,N,60647
+2025-11-04,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0055,N,60647
+2025-11-05,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0075,N,60601
+2025-11-06,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0057,N,60647
+2025-11-07,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0076,N,60647
+2025-11-08,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0042,N,60622
+2025-11-08,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0049,N,60622
+2025-11-09,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0009,N,60647
+2025-11-11,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0010,N,60647
+2025-11-12,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0074,N,60601
+2025-11-13,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0004,N,60647
+2025-11-14,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0041,N,60647
+2025-11-15,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0032,N,60622
+2025-11-15,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0071,N,60622
+2025-11-16,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0041,N,60647
+2025-11-18,18:30,Vinyasa Flow,25,17,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0056,N,60647
+2025-11-20,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0042,N,60647
+2025-11-21,07:00,Morning Vinyasa,20,8,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0019,N,60647
+2025-11-22,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0022,N,60622
+2025-11-22,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0010,N,60622
+2025-11-23,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0073,N,60647
+2025-11-25,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0048,N,60647
+2025-11-26,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0017,N,60601
+2025-11-27,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0058,N,60647
+2025-11-29,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0003,N,60622
+2025-11-29,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0063,N,60622
+2025-11-30,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0065,N,60647
+2025-12-02,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0065,N,60647
+2025-12-03,12:00,Desk Worker Mobility,30,29,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0047,N,60601
+2025-12-04,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0051,N,60647
+2025-12-05,07:00,Morning Vinyasa,20,7,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0070,N,60647
+2025-12-06,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0031,N,60622
+2025-12-06,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0008,N,60622
+2025-12-07,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0017,N,60647
+2025-12-09,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0009,N,60647
+2025-12-11,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0040,N,60647
+2025-12-13,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0049,N,60622
+2025-12-13,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0003,N,60622
+2025-12-14,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0022,N,60647
+2025-12-16,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0058,N,60647
+2025-12-17,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0029,N,60601
+2025-12-18,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0067,N,60647
+2025-12-19,07:00,Morning Vinyasa,20,17,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0004,N,60647
+2025-12-20,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0008,N,60622
+2025-12-20,11:00,Community Gentle Yoga,30,23,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0046,N,60622
+2025-12-21,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0067,N,60647
+2025-12-23,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0080,N,60647
+2025-12-24,12:00,Desk Worker Mobility,30,27,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0040,N,60601
+2025-12-25,19:00,Candlelight Yin & Sound,20,15,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0042,N,60647
+2025-12-26,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0075,N,60647
+2025-12-27,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0011,N,60622
+2025-12-27,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0044,N,60622
+2025-12-28,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0069,N,60647
+2025-12-30,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0050,N,60647
+2025-12-31,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0058,N,60601
+2026-01-01,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0009,N,60647
+2026-01-02,07:00,Morning Vinyasa,20,5,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0042,N,60647
+2026-01-03,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0036,N,60622
+2026-01-03,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0003,N,60622
+2026-01-04,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0014,N,60647
+2026-01-06,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0050,N,60647
+2026-01-07,12:00,Desk Worker Mobility,30,21,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0054,N,60601
+2026-01-08,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0032,N,60647
+2026-01-09,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0033,N,60647
+2026-01-10,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0048,N,60622
+2026-01-10,11:00,Community Gentle Yoga,30,23,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0022,N,60622
+2026-01-11,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0054,N,60647
+2026-01-13,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0013,N,60647
+2026-01-14,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0032,N,60601
+2026-01-15,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0060,N,60647
+2026-01-16,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0049,N,60647
+2026-01-17,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0050,N,60622
+2026-01-17,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0007,N,60622
+2026-01-18,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0075,N,60647
+2026-01-20,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0020,N,60647
+2026-01-21,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0013,N,60601
+2026-01-22,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0038,N,60647
+2026-01-23,07:00,Morning Vinyasa,20,9,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0033,N,60647
+2026-01-24,08:30,Saturday Sunrise Flow,35,32,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0056,N,60622
+2026-01-24,11:00,Community Gentle Yoga,30,22,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0020,N,60622
+2026-01-25,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0030,N,60647
+2026-01-28,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0069,N,60601
+2026-01-29,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0046,N,60647
+2026-01-30,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0056,N,60647
+2026-01-31,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0064,N,60622
+2026-01-31,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0025,N,60622
+2026-02-01,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0008,N,60647
+2026-02-03,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0002,N,60647
+2026-02-04,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0058,N,60601
+2026-02-05,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0035,N,60647
+2026-02-06,07:00,Morning Vinyasa,20,15,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0008,N,60647
+2026-02-07,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0024,N,60622
+2026-02-07,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0073,N,60622
+2026-02-08,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0037,N,60647
+2026-02-10,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0010,N,60647
+2026-02-11,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0069,N,60601
+2026-02-12,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0014,N,60647
+2026-02-13,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0051,N,60647
+2026-02-14,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0060,N,60622
+2026-02-14,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0017,N,60622
+2026-02-15,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0021,N,60647
+2026-02-17,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0034,N,60647
+2026-02-18,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0010,N,60601
+2026-02-19,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0055,N,60647
+2026-02-20,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0072,N,60647
+2026-02-21,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0075,N,60622
+2026-02-21,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0003,N,60622
+2026-02-22,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0001,N,60647
+2026-02-24,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0023,N,60647
+2026-02-25,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0007,N,60601
+2026-02-26,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0016,N,60647
+2026-02-27,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0064,N,60647
+2026-02-28,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0050,N,60622
+2026-02-28,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0010,N,60622
+2026-03-03,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0074,N,60647
+2026-03-04,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0056,N,60601
+2026-03-05,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0011,N,60647
+2026-03-06,07:00,Morning Vinyasa,20,18,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0050,N,60647
+2026-03-07,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0066,N,60622
+2026-03-07,11:00,Community Gentle Yoga,30,23,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0022,N,60622
+2026-03-08,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0043,N,60647
+2026-03-10,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0067,N,60647
+2026-03-11,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0079,N,60601
+2026-03-12,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0011,N,60647
+2026-03-13,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0041,N,60647
+2026-03-14,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0038,N,60622
+2026-03-14,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0015,N,60622
+2026-03-15,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0057,N,60647
+2026-03-17,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0002,N,60647
+2026-03-18,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0065,N,60601
+2026-03-19,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0074,N,60647
+2026-03-20,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0068,N,60647
+2026-03-21,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0077,N,60622
+2026-03-21,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0062,N,60622
+2026-03-22,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0003,N,60647
+2026-03-24,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0032,N,60647
+2026-03-25,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0053,N,60601
+2026-03-26,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0070,N,60647
+2026-03-28,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0035,N,60622
+2026-03-28,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0057,N,60622
+2026-03-29,10:30,Restorative Breath & Flow,22,15,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0010,N,60647
+2026-03-31,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0028,N,60647
+2026-04-01,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0072,N,60601
+2026-04-02,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0010,N,60647
+2026-04-03,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0076,N,60647
+2026-04-04,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0019,N,60622
+2026-04-04,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0064,N,60622
+2026-04-05,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0005,N,60647
+2026-04-07,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0075,N,60647
+2026-04-08,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0031,N,60601
+2026-04-09,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0003,N,60647
+2026-04-10,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0004,N,60647
+2026-04-11,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0076,N,60622
+2026-04-11,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0027,N,60622
+2026-04-14,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0072,N,60647
+2026-04-15,12:00,Desk Worker Mobility,30,28,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0048,N,60601
+2026-04-16,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0052,N,60647
+2026-04-17,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0007,N,60647
+2026-04-18,08:30,Saturday Sunrise Flow,35,29,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0056,N,60622
+2026-04-18,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0023,N,60622
+2026-04-19,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0043,N,60647
+2026-04-21,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0060,N,60647
+2026-04-22,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0034,N,60601
+2026-04-23,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0042,N,60647
+2026-04-24,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0039,N,60647
+2026-04-25,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0019,N,60622
+2026-04-25,11:00,Community Gentle Yoga,30,30,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0045,N,60622
+2026-04-26,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0062,N,60647
+2026-04-28,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0069,N,60647
+2026-04-29,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0069,N,60601
+2026-04-30,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0056,N,60647
+2026-05-01,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0003,N,60647
+2026-05-02,08:30,Saturday Sunrise Flow,35,32,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0052,N,60622
+2026-05-02,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0041,N,60622
+2026-05-03,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0054,N,60647
+2026-05-05,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0026,N,60647
+2026-05-06,12:00,Desk Worker Mobility,30,19,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0078,N,60601
+2026-05-07,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0063,N,60647
+2026-05-08,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0017,N,60647
+2026-05-09,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0045,N,60622
+2026-05-09,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0011,N,60622
+2026-05-10,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0032,N,60647
+2026-05-12,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0065,N,60647
+2026-05-13,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0027,N,60601
+2026-05-14,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0026,N,60647
+2026-05-15,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0078,N,60647
+2026-05-16,08:30,Saturday Sunrise Flow,35,23,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0042,N,60622
+2026-05-16,11:00,Community Gentle Yoga,30,30,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0042,N,60622
+2026-05-17,10:30,Restorative Breath & Flow,22,21,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0044,N,60647
+2026-05-19,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0070,N,60647
+2026-05-20,12:00,Desk Worker Mobility,30,20,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0075,N,60601
+2026-05-21,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0003,N,60647
+2026-05-22,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0048,N,60647
+2026-05-23,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0009,N,60622
+2026-05-23,11:00,Community Gentle Yoga,30,23,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0075,N,60622
+2026-05-24,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0028,N,60647
+2026-05-26,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0045,N,60647
+2026-05-27,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0052,N,60601
+2026-05-28,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0042,N,60647
+2026-05-29,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0078,N,60647
+2026-05-30,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0035,N,60622
+2026-05-30,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0045,N,60622
+2026-05-31,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0013,N,60647
+2026-06-02,18:30,Vinyasa Flow,25,23,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0052,N,60647
+2026-06-03,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0075,N,60601
+2026-06-04,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0008,N,60647
+2026-06-05,07:00,Morning Vinyasa,20,9,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0007,N,60647
+2026-06-06,08:30,Saturday Sunrise Flow,35,30,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0043,N,60622
+2026-06-06,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0069,N,60622
+2026-06-07,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0078,N,60647
+2026-06-09,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0069,N,60647
+2026-06-10,12:00,Desk Worker Mobility,30,24,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0069,N,60601
+2026-06-11,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0040,N,60647
+2026-06-12,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0073,N,60647
+2026-06-13,08:30,Saturday Sunrise Flow,35,32,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0057,N,60622
+2026-06-13,11:00,Community Gentle Yoga,30,30,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0001,N,60622
+2026-06-14,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0047,N,60647
+2026-06-16,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0068,N,60647
+2026-06-17,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0020,N,60601
+2026-06-18,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0080,N,60647
+2026-06-19,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0051,N,60647
+2026-06-20,08:30,Saturday Sunrise Flow,35,29,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0004,N,60622
+2026-06-20,11:00,Community Gentle Yoga,30,29,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0066,N,60622
+2026-06-21,10:30,Restorative Breath & Flow,22,14,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0079,N,60647
+2026-06-23,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0076,N,60647
+2026-06-24,12:00,Desk Worker Mobility,30,19,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0033,N,60601
+2026-06-25,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0060,N,60647
+2026-06-26,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0039,N,60647
+2026-06-27,08:30,Saturday Sunrise Flow,35,31,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0021,N,60622
+2026-06-27,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0058,N,60622
+2026-06-28,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0077,N,60647
+2026-06-30,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0017,N,60647
+2026-07-01,12:00,Desk Worker Mobility,30,20,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0067,N,60601
+2026-07-02,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0020,N,60647
+2026-07-03,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0035,N,60647
+2026-07-04,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0050,N,60622
+2026-07-04,11:00,Community Gentle Yoga,30,21,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0021,N,60622
+2026-07-05,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0027,N,60647
+2026-07-07,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0026,N,60647
+2026-07-08,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0045,N,60601
+2026-07-09,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0063,N,60647
+2026-07-10,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0024,N,60647
+2026-07-11,08:30,Saturday Sunrise Flow,35,26,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0062,N,60622
+2026-07-11,11:00,Community Gentle Yoga,30,24,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0076,N,60622
+2026-07-12,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0020,N,60647
+2026-07-14,18:30,Vinyasa Flow,25,24,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0048,N,60647
+2026-07-15,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0018,N,60601
+2026-07-16,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0053,N,60647
+2026-07-17,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0006,N,60647
+2026-07-18,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0074,N,60622
+2026-07-18,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0060,N,60622
+2026-07-19,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0051,N,60647
+2026-07-21,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0035,N,60647
+2026-07-22,12:00,Desk Worker Mobility,30,21,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0035,N,60601
+2026-07-23,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0068,N,60647
+2026-07-24,07:00,Morning Vinyasa,20,13,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0049,N,60647
+2026-07-25,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0030,N,60622
+2026-07-25,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0048,N,60622
+2026-07-26,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0036,N,60647
+2026-07-28,18:30,Vinyasa Flow,25,21,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0017,N,60647
+2026-07-29,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0054,N,60601
+2026-07-30,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0067,N,60647
+2026-07-31,07:00,Morning Vinyasa,20,11,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0027,N,60647
+2026-08-01,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0034,N,60622
+2026-08-01,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0009,N,60622
+2026-08-02,10:30,Restorative Breath & Flow,22,12,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0079,N,60647
+2026-08-04,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0047,N,60647
+2026-08-05,12:00,Desk Worker Mobility,30,28,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0029,N,60601
+2026-08-06,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0047,N,60647
+2026-08-07,07:00,Morning Vinyasa,20,12,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0036,N,60647
+2026-08-08,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0068,N,60622
+2026-08-09,10:30,Restorative Breath & Flow,22,19,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0040,N,60647
+2026-08-11,18:30,Vinyasa Flow,25,25,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0013,N,60647
+2026-08-12,12:00,Desk Worker Mobility,30,27,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0062,N,60601
+2026-08-13,19:00,Candlelight Yin & Sound,20,18,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0016,N,60647
+2026-08-14,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0078,N,60647
+2026-08-15,08:30,Saturday Sunrise Flow,35,23,15.0,In-person,Park District,North Ave Beach,Drop-in,usr_0011,N,60622
+2026-08-15,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0017,N,60622
+2026-08-16,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0016,N,60647
+2026-08-18,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0002,N,60647
+2026-08-19,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0008,N,60601
+2026-08-20,19:00,Candlelight Yin & Sound,20,16,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0048,N,60647
+2026-08-21,07:00,Morning Vinyasa,20,17,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0040,N,60647
+2026-08-22,08:30,Saturday Sunrise Flow,35,29,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0027,N,60622
+2026-08-22,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0055,N,60622
+2026-08-23,10:30,Restorative Breath & Flow,22,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0018,N,60647
+2026-08-25,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0077,N,60647
+2026-08-26,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0017,N,60601
+2026-08-27,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0044,N,60647
+2026-08-28,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0070,N,60647
+2026-08-29,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0012,N,60622
+2026-08-29,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0009,N,60622
+2026-08-30,10:30,Restorative Breath & Flow,22,16,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0032,N,60647
+2026-09-01,18:30,Vinyasa Flow,25,18,24.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0048,N,60647
+2026-09-02,12:00,Desk Worker Mobility,30,26,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0018,N,60601
+2026-09-03,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0010,N,60647
+2026-09-04,07:00,Morning Vinyasa,20,9,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0054,N,60647
+2026-09-05,08:30,Saturday Sunrise Flow,35,28,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0029,N,60622
+2026-09-05,11:00,Community Gentle Yoga,30,25,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0008,N,60622
+2026-09-06,10:30,Restorative Breath & Flow,22,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0056,N,60647
+2026-09-08,18:30,Vinyasa Flow,25,20,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0016,N,60647
+2026-09-09,12:00,Desk Worker Mobility,30,22,20.0,In-person,Corporate,Loop Innovation Hub,Monthly Member,usr_0038,N,60601
+2026-09-10,19:00,Candlelight Yin & Sound,20,19,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0028,N,60647
+2026-09-11,07:00,Morning Vinyasa,20,10,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0049,N,60647
+2026-09-12,08:30,Saturday Sunrise Flow,35,27,15.0,In-person,Park District,North Ave Beach,Monthly Member,usr_0035,N,60622
+2026-09-12,11:00,Community Gentle Yoga,30,26,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0067,N,60622
+2026-09-13,10:30,Restorative Breath & Flow,22,18,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0017,N,60647
+2026-09-15,18:30,Vinyasa Flow,25,19,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0027,N,60647
+2026-09-16,12:00,Desk Worker Mobility,30,23,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0013,N,60601
+2026-09-17,19:00,Candlelight Yin & Sound,20,20,26.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0030,N,60647
+2026-09-18,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0045,N,60647
+2026-09-19,08:30,Saturday Sunrise Flow,35,24,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0069,N,60622
+2026-09-19,11:00,Community Gentle Yoga,30,27,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0050,N,60622
+2026-09-20,10:30,Restorative Breath & Flow,22,20,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0064,N,60647
+2026-09-22,18:30,Vinyasa Flow,25,17,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0079,N,60647
+2026-09-23,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,Drop-in,usr_0029,N,60601
+2026-09-24,19:00,Candlelight Yin & Sound,20,17,26.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0012,N,60647
+2026-09-25,07:00,Morning Vinyasa,20,14,22.0,In-person,Studio,Bloom Yoga Studio,Drop-in,usr_0014,N,60647
+2026-09-26,08:30,Saturday Sunrise Flow,35,25,15.0,In-person,Park District,North Ave Beach,ClassPass,usr_0055,N,60622
+2026-09-26,11:00,Community Gentle Yoga,30,22,0.0,In-person,Community Center,Wicker Park Fieldhouse,Sliding Scale,usr_0030,N,60622
+2026-09-27,10:30,Restorative Breath & Flow,22,14,24.0,In-person,Studio,Bloom Yoga Studio,ClassPass,usr_0013,N,60647
+2026-09-29,18:30,Vinyasa Flow,25,22,24.0,In-person,Studio,Bloom Yoga Studio,Monthly Member,usr_0048,N,60647
+2026-09-30,12:00,Desk Worker Mobility,30,25,20.0,In-person,Corporate,Loop Innovation Hub,ClassPass,usr_0024,N,60601

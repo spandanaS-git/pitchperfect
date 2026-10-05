@@ -1,0 +1,21 @@
+event_date,event_name,event_type,expected_attendance,actual_attendance,host_organization_type,revenue,cost,repeat_booking,host_rating,notes
+2025-04-01,Equinox Executive De-Stress,Corporate Wellness,25,32,Tech Company,500.0,0.0,Y,5,High engagement; VP requested monthly series.
+2025-04-29,Earth Day Park District Flow,Festival,45,65,Park District,450.0,40.0,Y,5,Exceeded lawn capacity; bilingual instruction praised.
+2025-05-27,Mental Health Awareness School Hour,School Workshop,30,28,Public School,350.0,15.0,Y,5,Principal reported noticeable calm in student cohort.
+2025-06-24,Luxury Hotel Sunrise Wellness,Hotel Residency,15,19,Boutique Hotel,350.0,0.0,Y,5,Guests rated 5/5; extended for fall season.
+2025-07-23,Midsummer Community Sound Sanctuary,Festival,40,58,Community Center,400.0,50.0,Y,5,Large crowd; seamless sound amplification.
+2025-08-20,Quarterly Law Firm Posture Workshop,Corporate Wellness,20,24,Law Firm,600.0,0.0,Y,5,Repeat booking from Q1; desk mobility requested.
+2025-09-17,Youth Athletics Mindful Recovery,School Workshop,25,26,Public School,300.0,0.0,Y,4,Soccer team breathwork session.
+2025-10-15,Bachelorette Private Sunset Yoga,Private Event,12,14,Private Host,350.0,20.0,N,5,Customized playlist and aromatherapy gift bags.
+2025-11-13,Tech Company Q3 Wellness Day,Corporate Wellness,35,40,Tech Company,550.0,0.0,Y,5,Full room turnout; employee survey NPS was 100.
+2025-12-11,Fall Harvest Community Festival,Festival,50,72,Park District,500.0,35.0,Y,5,Largest outdoor class of the season.
+2026-01-08,Teachers Institute Day Wellness,School Workshop,40,45,Public School,450.0,10.0,Y,5,Burnout relief workshop for CPS educators.
+2026-02-05,Boutique Hotel Autumn Sound Bath,Hotel Residency,15,16,Boutique Hotel,350.0,0.0,Y,5,Sold-out rooftop session.
+2026-03-06,Corporate Holiday Mindful Reset,Corporate Wellness,30,38,Tech Company,650.0,0.0,Y,5,End-of-year decompression session.
+2026-04-03,Private Birthday Wellness Gathering,Private Event,10,10,Private Host,300.0,15.0,Y,5,Host booked annual family session.
+2026-05-01,New Year Community Intention Flow,Festival,35,44,Community Center,350.0,25.0,Y,5,Standing room only; sliding scale admission.
+2026-05-29,Winter Hotel Weekend Series #1,Hotel Residency,12,14,Boutique Hotel,300.0,0.0,Y,5,Visiting guests loved the slow morning pace.
+2026-06-27,Corporate Winter Wellness Series #1,Corporate Wellness,25,29,Consulting Firm,500.0,0.0,Y,5,Chairs & mats hybrid setup.
+2026-07-25,Spring Awakening Rooftop Flow,Festival,30,36,Studio,450.0,30.0,Y,5,Annual pop-up partner event.
+2026-08-22,Corporate Spring Wellness Series #2,Corporate Wellness,25,31,Consulting Firm,500.0,0.0,Y,5,100% repeat booking from winter cohort.
+2026-09-20,Summer Solstice Beach Gathering,Festival,60,82,Park District,600.0,45.0,Y,5,Peak attendance event of the fellowship year.

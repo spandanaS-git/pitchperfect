@@ -1,0 +1,117 @@
+# PitchPerfect Opportunity Taxonomy (v1.0)
+# Maps buyer decision-maker priorities to weighted Evidence Cards
+
+opportunities:
+  studio_residency:
+    id: studio_residency
+    name: "Studio Residency"
+    buyer: "Studio Owner / General Manager"
+    buyer_priority: "Will this teacher fill a recurring weekly slot, retain participants, and show up reliably?"
+    narrative_focus: "Consistent fill rates, high retention curves, strong first-to-second class conversion, and dedicated student following."
+    min_requirements:
+      min_classes: 20
+      min_unique_clients: 15
+    evidence_weights:
+      fill_rate_avg: 25
+      return_rate_30d: 20
+      first_to_second_conversion: 15
+      classes_held_ratio: 15
+      attendance_trend_positive: 15
+      unique_participant_count: 10
+
+  corporate_wellness:
+    id: corporate_wellness
+    name: "Corporate Wellness"
+    buyer: "HR Director / People Ops / Wellness Coordinator"
+    buyer_priority: "Is this reliable, measurable, and easy to schedule around the workday? Will employees engage and report lower stress?"
+    narrative_focus: "Documented stress-reduction metrics, high recommend rates, midday/lunchtime availability, and verified liability insurance."
+    min_requirements:
+      min_surveys: 25
+      min_classes: 15
+    evidence_weights:
+      stress_reduction_delta: 30
+      recommend_rate: 20
+      overall_rating_avg: 15
+      lunchtime_availability: 15
+      liability_insurance_on_file: 10
+      classes_held_ratio: 10
+
+  community_organization:
+    id: community_organization
+    name: "Community Organization"
+    buyer: "Executive Director / Program Manager"
+    buyer_priority: "Is this teacher culturally responsive, accessible, affordable, and trusted by the local community?"
+    narrative_focus: "High feeling of belonging and inclusion ('felt welcomed' scores), community venue track record, language accessibility, and sliding scale policy."
+    min_requirements:
+      min_classes: 10
+      min_surveys: 15
+    evidence_weights:
+      felt_welcomed_score: 30
+      repeat_attendance_share: 20
+      sliding_scale_policy: 15
+      language_matches: 15
+      quotable_community_comments: 10
+      park_community_venue_history: 10
+
+  school:
+    id: school
+    name: "School / Youth Program"
+    buyer: "Principal / Athletic Director / Student Life Coordinator"
+    buyer_priority: "Is this instructor vetted, safe, trauma-informed, and experienced with youth in classroom or assembly settings?"
+    narrative_focus: "Youth experience, active background checks and liability insurance, classroom group sizes, and strong host ratings from educational partners."
+    min_requirements:
+      min_events_or_classes: 5
+      requires_background_check: true
+    evidence_weights:
+      background_check_on_file: 25
+      youth_segment_experience: 25
+      liability_insurance_on_file: 20
+      classroom_group_size_handled: 15
+      school_host_rating_avg: 15
+
+  festival:
+    id: festival
+    name: "Festival / Large Event"
+    buyer: "Festival Producer / Booking Agent"
+    buyer_priority: "Can this instructor command a large, outdoor, multi-level crowd and draw foot traffic to our stage or wellness tent?"
+    narrative_focus: "Peak crowd capacity delivered, actual vs. expected attendance over-delivery, outdoor event experience, and high-energy attendee feedback."
+    min_requirements:
+      min_events: 3
+      min_max_capacity: 40
+    evidence_weights:
+      peak_class_size_delivered: 30
+      event_attendance_ratio: 25
+      outdoor_event_track_record: 20
+      high_energy_comments_count: 15
+      overall_rating_avg: 10
+
+  hotel:
+    id: hotel
+    name: "Hotel / Luxury Resort"
+    buyer: "Hospitality General Manager / Guest Experience Director"
+    buyer_priority: "Will this elevate guest satisfaction, and is the instructor dependable for early-morning drop-in guests?"
+    narrative_focus: "5-star guest reviews, early-morning scheduling flexibility, premium small-group experience, and drop-in engagement."
+    min_requirements:
+      min_classes: 10
+      min_surveys: 10
+    evidence_weights:
+      early_morning_availability: 25
+      overall_rating_avg: 25
+      drop_in_experience_rate: 20
+      guest_style_comments: 15
+      professional_certifications: 15
+
+  private_event:
+    id: private_event
+    name: "Private Event / Retreat"
+    buyer: "Private Host / Event Planner"
+    buyer_priority: "Will this experience be memorable, customized to our group, and seamless to book?"
+    narrative_focus: "Repeat host bookings, 5-star host testimonials, customizable curriculum, and clear transparent rate card."
+    min_requirements:
+      min_events: 2
+    evidence_weights:
+      repeat_booking_rate: 30
+      host_rating_avg: 25
+      quotable_testimonials_count: 20
+      private_event_experience: 15
+      clear_rate_card_on_file: 10
