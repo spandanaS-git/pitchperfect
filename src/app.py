@@ -152,7 +152,7 @@ with tab_upload:
     st.subheader("Upload Your Spreadsheets (CSV or XLSX)")
     st.caption("You can upload one, two, or all three files. Download template files if you need reference formats.")
     
-    col1, col2, col3 = st.columns(3)
+    tmpl_dir = os.path.join(os.path.dirname(__file__), "..", "data", "templates")
     
     # ── File 1: Class History ──────────────────────────────────────────────
     with col1:
@@ -160,6 +160,12 @@ with tab_upload:
         st.caption("Attendance, capacity, and scheduling logs.")
         uploaded_c = st.file_uploader("Upload class_history", type=["csv", "xlsx"], key="up_class")
         
+        # Download template button
+        c_tmpl_path = os.path.join(tmpl_dir, "class_history_template.csv")
+        if os.path.exists(c_tmpl_path):
+            with open(c_tmpl_path, "r", encoding="utf-8") as f:
+                st.download_button("📥 Download Class Template (.csv)", f.read(), "class_history_template.csv", "text/csv", use_container_width=True)
+
         if uploaded_c is not None:
             raw_df = load_file_to_df(uploaded_c, uploaded_c.name)
             clean_df, dropped = scrub_pii_and_hash_clients(raw_df)
@@ -187,6 +193,12 @@ with tab_upload:
         st.caption("Post-class ratings, NPS, and stress scores.")
         uploaded_s = st.file_uploader("Upload survey_responses", type=["csv", "xlsx"], key="up_survey")
         
+        # Download template button
+        s_tmpl_path = os.path.join(tmpl_dir, "survey_responses_template.csv")
+        if os.path.exists(s_tmpl_path):
+            with open(s_tmpl_path, "r", encoding="utf-8") as f:
+                st.download_button("📥 Download Survey Template (.csv)", f.read(), "survey_responses_template.csv", "text/csv", use_container_width=True)
+
         if uploaded_s is not None:
             raw_df = load_file_to_df(uploaded_s, uploaded_s.name)
             clean_df, dropped = scrub_pii_and_hash_clients(raw_df)
@@ -214,6 +226,12 @@ with tab_upload:
         st.caption("Pop-ups, festivals, workshops, and retreats.")
         uploaded_e = st.file_uploader("Upload event_outcomes", type=["csv", "xlsx"], key="up_event")
         
+        # Download template button
+        e_tmpl_path = os.path.join(tmpl_dir, "event_outcomes_template.csv")
+        if os.path.exists(e_tmpl_path):
+            with open(e_tmpl_path, "r", encoding="utf-8") as f:
+                st.download_button("📥 Download Event Template (.csv)", f.read(), "event_outcomes_template.csv", "text/csv", use_container_width=True)
+
         if uploaded_e is not None:
             raw_df = load_file_to_df(uploaded_e, uploaded_e.name)
             clean_df, dropped = scrub_pii_and_hash_clients(raw_df)
