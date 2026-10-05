@@ -78,6 +78,8 @@ if "event_df" not in st.session_state:
     st.session_state["event_df"] = None
 if "is_demo" not in st.session_state:
     st.session_state["is_demo"] = False
+if "uploader_key" not in st.session_state:
+    st.session_state["uploader_key"] = 0
 
 # Sidebar - Instructor Profile & Info
 with st.sidebar:
@@ -118,16 +120,18 @@ with col_demo:
         e_path = os.path.join(demo_dir, "event_outcomes.csv")
         
         if os.path.exists(c_path) and os.path.exists(s_path) and os.path.exists(e_path):
+            st.session_state["uploader_key"] += 1
             st.session_state["class_df"] = pd.read_csv(c_path)
             st.session_state["survey_df"] = pd.read_csv(s_path)
             st.session_state["event_df"] = pd.read_csv(e_path)
             st.session_state["is_demo"] = True
-            st.success("Loaded 18-month demo dataset successfully!")
+            st.rerun()
         else:
             st.error("Demo files not found. Run scripts/generate_demo_data.py first.")
 
 with col_reset:
     if st.button("🔄 Clear Data", use_container_width=True):
+        st.session_state["uploader_key"] += 1
         st.session_state["class_df"] = None
         st.session_state["survey_df"] = None
         st.session_state["event_df"] = None
@@ -154,12 +158,13 @@ with tab_upload:
     
     tmpl_dir = os.path.join(os.path.dirname(__file__), "..", "data", "templates")
     col1, col2, col3 = st.columns(3)
+    ukey = st.session_state["uploader_key"]
     
     # ── File 1: Class History ──────────────────────────────────────────────
     with col1:
         st.markdown("#### 1. Class History")
         st.caption("Attendance, capacity, and scheduling logs.")
-        uploaded_c = st.file_uploader("Upload class_history", type=["csv", "xlsx"], key="up_class")
+        uploaded_c = st.file_uploader("Upload class_history", type=["csv", "xlsx"], key=f"up_class_{ukey}")
         
         # Download template button
         c_tmpl_path = os.path.join(tmpl_dir, "class_history_template.csv")
@@ -176,6 +181,7 @@ with tab_upload:
             
             if val["valid"]:
                 st.session_state["class_df"] = mapped_df
+                st.session_state["is_demo"] = False
                 st.success(f"✅ Valid: {val['row_count']} classes loaded.")
             else:
                 st.error("Validation issues found:")
@@ -192,7 +198,7 @@ with tab_upload:
     with col2:
         st.markdown("#### 2. Participant Surveys")
         st.caption("Post-class ratings, NPS, and stress scores.")
-        uploaded_s = st.file_uploader("Upload survey_responses", type=["csv", "xlsx"], key="up_survey")
+        uploaded_s = st.file_uploader("Upload survey_responses", type=["csv", "xlsx"], key=f"up_survey_{ukey}")
         
         # Download template button
         s_tmpl_path = os.path.join(tmpl_dir, "survey_responses_template.csv")
@@ -209,6 +215,7 @@ with tab_upload:
             
             if val["valid"]:
                 st.session_state["survey_df"] = mapped_df
+                st.session_state["is_demo"] = False
                 st.success(f"✅ Valid: {val['row_count']} surveys loaded.")
             else:
                 st.error("Validation issues found:")
@@ -225,7 +232,7 @@ with tab_upload:
     with col3:
         st.markdown("#### 3. Event Outcomes")
         st.caption("Pop-ups, festivals, workshops, and retreats.")
-        uploaded_e = st.file_uploader("Upload event_outcomes", type=["csv", "xlsx"], key="up_event")
+        uploaded_e = st.file_uploader("Upload event_outcomes", type=["csv", "xlsx"], key=f"up_event_{ukey}")
         
         # Download template button
         e_tmpl_path = os.path.join(tmpl_dir, "event_outcomes_template.csv")
@@ -242,6 +249,7 @@ with tab_upload:
             
             if val["valid"]:
                 st.session_state["event_df"] = mapped_df
+                st.session_state["is_demo"] = False
                 st.success(f"✅ Valid: {val['row_count']} events loaded.")
             else:
                 st.error("Validation issues found:")
