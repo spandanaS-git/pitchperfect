@@ -81,26 +81,24 @@ if "is_demo" not in st.session_state:
 
 # Sidebar - Instructor Profile & Info
 with st.sidebar:
-    st.image("https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/Python-Dark.svg", width=40)
     st.markdown("### 🧘 Instructor Profile")
-    st.caption("This info contextualizes your proposals.")
+    st.caption("Enter your details to personalize your proposals.")
     
-    inst_name = st.text_input("Full Name", value="Mariana Rodriguez", placeholder="Your full name")
-    inst_disciplines = st.text_input("Disciplines", value="Vinyasa Yoga, Breathwork, Yin", placeholder="e.g. Yoga, Pilates")
-    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, value=5)
+    inst_name = st.text_input("Full Name", value="", placeholder="Enter your full name")
+    inst_disciplines = st.text_input("Disciplines", value="", placeholder="e.g. Vinyasa Yoga, Pilates, Breathwork")
+    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, value=1)
     
     st.markdown("---")
     st.markdown("#### 🛡️ Credentials & Policies")
-    inst_insurance = st.checkbox("Liability Insurance on File", value=True)
-    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", value=True)
-    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", value=True)
-    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language"], default=["English", "Spanish"])
+    inst_insurance = st.checkbox("Liability Insurance on File", value=False)
+    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", value=False)
+    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", value=False)
+    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], default=["English"])
     
     st.markdown("---")
-    st.caption("PitchPerfect v1.0 | ChiEAC Fellowship\nSupervisor: Dr. Benjamin M. Drury")
+    st.caption("PitchPerfect v1.0")
 
 # App Header
-st.markdown('<div class="badge-pill">ChiEAC Fellowship Project</div>', unsafe_allow_html=True)
 st.markdown('<div class="main-header">PitchPerfect: Turn Teaching Data into Partnership Pitches</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="sub-header">'
