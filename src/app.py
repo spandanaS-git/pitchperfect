@@ -153,6 +153,7 @@ with tab_upload:
     st.caption("You can upload one, two, or all three files. Download template files if you need reference formats.")
     
     tmpl_dir = os.path.join(os.path.dirname(__file__), "..", "data", "templates")
+    col1, col2, col3 = st.columns(3)
     
     # ── File 1: Class History ──────────────────────────────────────────────
     with col1:
