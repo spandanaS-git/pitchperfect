@@ -326,4 +326,4 @@ with tab_preview:
 
 # Footer
 st.markdown("---")
-st.caption("PitchPerfect | Chicago Education Advocacy Cooperative (ChiEAC) Fellowship | Zero data persistence guarantee.")
+st.caption("🔒 **Privacy Guarantee:** Your uploaded spreadsheets are processed securely in temporary session memory and are never saved, stored, or shared.")
