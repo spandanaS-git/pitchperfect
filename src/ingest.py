@@ -67,8 +67,18 @@ VENDOR_PRESETS: Dict[str, Dict[str, List[str]]] = {
 
 # Known PII column patterns to immediately drop
 PII_COLUMN_PATTERNS = [
-    r"name", r"first_?name", r"last_?name", r"full_?name", r"student_?name", r"attendee_?name",
-    r"email", r"e_?mail", r"phone", r"telephone", r"mobile", r"address", r"street", r"credit_?card", r"ssn"
+    r".*(?:student|client|customer|attendee|user|member|participant|person).*(?:name).*",
+    r".*(?:first|last|full|sur).?name.*",
+    r"^name$",
+    r".*email.*",
+    r".*phone.*",
+    r".*telephone.*",
+    r".*mobile.*",
+    r".*address.*",
+    r".*street.*",
+    r".*credit.?card.*",
+    r".*ssn.*",
+    r".*(?:birth.?date|dob).*"
 ]
 
 def load_file_to_df(file_bytes_or_path: Any, filename: str) -> pd.DataFrame:
@@ -95,8 +105,8 @@ def scrub_pii_and_hash_clients(df: pd.DataFrame) -> Tuple[pd.DataFrame, List[str
     df_clean = df.copy()
     dropped_columns = []
 
-    # Identify and drop PII columns (except client_id, venue_name, event_name)
-    preserve_exceptions = {"client_id", "venue_name", "event_name", "class_type"}
+    # Identify and drop PII columns (preserving business names like venue_name, event_name, class_type)
+    preserve_exceptions = {"client_id", "venue_name", "event_name", "class_name", "item_name", "workshop_name", "class_type"}
     for col in list(df_clean.columns):
         col_normalized = str(col).strip().lower().replace(" ", "_")
         if col_normalized in preserve_exceptions:
