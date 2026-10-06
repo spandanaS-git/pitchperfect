@@ -151,7 +151,7 @@ def metric_first_to_second_conv(df: pd.DataFrame) -> Optional[EvidenceCard]:
         family="Retention & Belonging",
         label="First-to-Second Class Conversion",
         value=rate,
-        formatted_value=f"{rate}%",
+        formatted_value=f"{rate}% ({repeat_clients} of {new_clients} students)",
         date_range=_get_date_range(df, "class_date"),
         sample_size=new_clients,
         source_file="class_history.csv",
@@ -181,7 +181,7 @@ def metric_return_rate_30d(df: pd.DataFrame) -> Optional[EvidenceCard]:
         family="Retention & Belonging",
         label="30-Day Student Return Rate",
         value=rate,
-        formatted_value=f"{rate}%",
+        formatted_value=f"{rate}% ({returned_within_30} of {total_clients} students)",
         date_range=_get_date_range(df, "class_date"),
         sample_size=total_clients,
         source_file="class_history.csv",
@@ -211,7 +211,7 @@ def metric_return_rate_60d(df: pd.DataFrame) -> Optional[EvidenceCard]:
         family="Retention & Belonging",
         label="60-Day Student Retention Rate",
         value=rate,
-        formatted_value=f"{rate}%",
+        formatted_value=f"{rate}% ({returned_within_60} of {total_clients} students)",
         date_range=_get_date_range(df, "class_date"),
         sample_size=total_clients,
         source_file="class_history.csv",
@@ -223,14 +223,14 @@ def metric_repeat_attendance_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
         return None
     counts = df["client_id"].value_counts()
     repeat_ids = set(counts[counts >= 2].index)
-    repeat_visits = df["client_id"].isin(repeat_ids).sum()
+    repeat_visits = int(df["client_id"].isin(repeat_ids).sum())
     share = round(float((repeat_visits / len(df)) * 100), 1)
     return EvidenceCard(
         id="repeat_attendance_share",
         family="Retention & Belonging",
         label="Repeat Student Attendance Share",
         value=share,
-        formatted_value=f"{share}%",
+        formatted_value=f"{share}% ({repeat_visits} of {len(df)} visits)",
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
@@ -279,14 +279,14 @@ def metric_high_capacity_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
         return None
     cap = pd.to_numeric(df["capacity"], errors="coerce")
     att = pd.to_numeric(df["attended"], errors="coerce")
-    high_cap = ((att / cap) >= 0.80).sum()
+    high_cap = int(((att / cap) >= 0.80).sum())
     share = round(float((high_cap / len(df)) * 100), 1)
     return EvidenceCard(
         id="high_capacity_share",
         family="Demand",
         label="Classes at ≥80% Capacity",
         value=share,
-        formatted_value=f"{share}%",
+        formatted_value=f"{share}% ({high_cap} of {len(df)} classes)",
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
@@ -423,14 +423,14 @@ def metric_felt_welcomed_score(df: pd.DataFrame) -> Optional[EvidenceCard]:
 def metric_recommend_rate(df: pd.DataFrame) -> Optional[EvidenceCard]:
     if df is None or len(df) == 0 or "would_recommend" not in df.columns:
         return None
-    recs = (df["would_recommend"].astype(str).str.upper() == "Y").sum()
+    recs = int((df["would_recommend"].astype(str).str.upper() == "Y").sum())
     rate = round(float((recs / len(df)) * 100), 1)
     return EvidenceCard(
         id="recommend_rate",
         family="Participant Outcomes",
         label="Peer Recommendation Rate",
         value=rate,
-        formatted_value=f"{rate}%",
+        formatted_value=f"{rate}% ({recs} of {len(df)} surveyed)",
         date_range=_get_date_range(df, "response_date"),
         sample_size=len(df),
         source_file="survey_responses.csv",
@@ -476,14 +476,14 @@ def metric_event_turnout_ratio(df: pd.DataFrame) -> Optional[EvidenceCard]:
 def metric_repeat_booking_rate(df: pd.DataFrame) -> Optional[EvidenceCard]:
     if df is None or len(df) == 0 or "repeat_booking" not in df.columns:
         return None
-    repeats = (df["repeat_booking"].astype(str).str.upper() == "Y").sum()
+    repeats = int((df["repeat_booking"].astype(str).str.upper() == "Y").sum())
     rate = round(float((repeats / len(df)) * 100), 1)
     return EvidenceCard(
         id="repeat_booking_rate",
         family="Event Track Record",
         label="Event Host Rebooking Rate",
         value=rate,
-        formatted_value=f"{rate}%",
+        formatted_value=f"{rate}% ({repeats} of {len(df)} hosts)",
         date_range=_get_date_range(df, "event_date"),
         sample_size=len(df),
         source_file="event_outcomes.csv",
