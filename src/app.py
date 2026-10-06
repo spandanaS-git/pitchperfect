@@ -31,8 +31,7 @@ from evidence import (
 )
 from scorecard import (
     calculate_opportunity_scorecard,
-    generate_radar_chart_figure,
-    generate_bar_chart_figure
+    generate_radar_chart_figure
 )
 
 # Page Configuration
@@ -431,56 +430,44 @@ with tab_scorecard:
             policy_overrides=policy_overrides
         )
 
-        # Overview Section: Radar Chart + Top Match
-        col_radar, col_rank = st.columns([1.3, 1.0])
+        # Overview Section: Radar Footprint + Ranked Cards
+        col_radar, col_rank = st.columns([1.2, 1.1])
 
         with col_radar:
-            chart_view = st.radio("Visualization Mode", ["Radar View (7-Axis)", "Ranked Bar View (Full Zoom & Pan)"], horizontal=True)
-            if "Radar" in chart_view:
-                fig = generate_radar_chart_figure(scorecard_res)
-                st.plotly_chart(
-                    fig,
-                    use_container_width=True,
-                    config={
-                        "scrollZoom": True,
-                        "displayModeBar": True,
-                        "modeBarButtonsToRemove": ["zoom2d", "pan2d", "select2d", "lasso2d", "autoScale2d"],
-                        "displaylogo": False
-                    }
-                )
-                st.caption("🔍 *Tip: Scroll mouse-wheel or touch pinch to zoom in/out on the radar. Click the expand icon (top-right) for fullscreen.*")
-            else:
-                fig = generate_bar_chart_figure(scorecard_res)
-                st.plotly_chart(
-                    fig,
-                    use_container_width=True,
-                    config={
-                        "scrollZoom": True,
-                        "displayModeBar": True,
-                        "displaylogo": False
-                    }
-                )
-                st.caption("🔍 *Tip: Click and drag a box to zoom into any bar. Double-click to reset.*")
+            st.markdown("#### 📡 7-Opportunity Readiness Footprint")
+            st.caption("Hover over any dimension to inspect your verified match against buyer priorities.")
+            fig = generate_radar_chart_figure(scorecard_res)
+            st.plotly_chart(
+                fig,
+                use_container_width=True,
+                config={"displayModeBar": False, "responsive": True}
+            )
 
         with col_rank:
-            st.markdown("#### 🏆 Ranked Opportunity Matches")
+            st.markdown("#### 🏆 Ranked Opportunity Leaderboard")
             top_opp = scorecard_res.opportunity_scores[scorecard_res.top_opportunity_id]
-            st.success(f"**#1 Recommendation: {top_opp.opportunity_name}**\n\nScore: **{top_opp.total_score}/100** • {top_opp.tier}")
+            st.success(f"**#1 Recommendation: {top_opp.opportunity_name}**\n\nReadiness: **{top_opp.total_score} / 100** • {top_opp.tier}")
 
             for rank_idx, opp_id in enumerate(scorecard_res.ranked_opportunities, 1):
                 opp = scorecard_res.opportunity_scores[opp_id]
                 badge_bg = "#DCFCE7" if "Pitch-Ready" in opp.tier else ("#FEF3C7" if "Strong" in opp.tier else "#FEE2E2")
                 badge_fg = "#15803D" if "Pitch-Ready" in opp.tier else ("#B45309" if "Strong" in opp.tier else "#B91C1C")
+                bar_color = "#16A34A" if "Pitch-Ready" in opp.tier else ("#D97706" if "Strong" in opp.tier else "#DC2626")
                 
                 st.markdown(f"""
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px; margin-bottom:6px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px;">
-                    <div>
-                        <span style="font-weight:700; color:#334155;">#{rank_idx} {opp.opportunity_name}</span>
-                        <div style="font-size:0.75rem; color:#64748B;">{opp.buyer}</div>
+                <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:10px; padding:10px 14px; margin-bottom:8px; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span style="font-weight:700; color:#1E293B; font-size:0.95rem;">#{rank_idx} {opp.opportunity_name}</span>
+                            <span style="font-size:0.75rem; color:#64748B; margin-left:6px;">• {opp.buyer}</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <span style="font-weight:800; font-size:1.05rem; color:{opp.tier_color};">{opp.total_score}</span><span style="font-size:0.75rem; color:#64748B;">/100</span>
+                            <span style="font-size:0.7rem; font-weight:700; background:{badge_bg}; color:{badge_fg}; padding:2px 7px; border-radius:999px; margin-left:6px;">{opp.tier.split(' ')[0]}</span>
+                        </div>
                     </div>
-                    <div style="text-align:right;">
-                        <span style="font-weight:800; font-size:1.1rem; color:{opp.tier_color};">{opp.total_score}</span><span style="font-size:0.75rem; color:#64748B;">/100</span>
-                        <div><span style="font-size:0.7rem; font-weight:700; background:{badge_bg}; color:{badge_fg}; padding:2px 6px; border-radius:4px;">{opp.tier.split(' ')[0]}</span></div>
+                    <div style="background:#F1F5F9; border-radius:999px; height:6px; overflow:hidden; margin-top:6px;">
+                        <div style="background:{bar_color}; width:{min(opp.total_score, 100.0)}%; height:6px; border-radius:999px;"></div>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)

@@ -288,29 +288,35 @@ def generate_radar_chart_figure(scorecard: ScorecardResult):
         r=scores,
         theta=categories,
         fill="toself",
-        fillcolor="rgba(37, 99, 235, 0.25)",
-        line=dict(color="#1D4ED8", width=2.5),
-        marker=dict(size=7, color="#1E40AF"),
+        fillcolor="rgba(2, 132, 199, 0.18)",
+        line=dict(color="#0284C7", width=2.5),
+        marker=dict(size=6, color="#0369A1"),
+        hovertemplate="<b>%{theta}</b><br>Readiness: <b>%{r}/100</b><extra></extra>",
         name="Readiness Score"
     ))
 
     fig.update_layout(
-        uirevision="radar_zoom",
         polar=dict(
+            bgcolor="rgba(248, 250, 252, 0.5)",
             radialaxis=dict(
                 visible=True,
                 range=[0, 100],
-                tickfont=dict(size=10, color="#64748B"),
-                gridcolor="#E2E8F0"
+                tickvals=[25, 50, 75, 100],
+                ticktext=["25", "50", "75", "100"],
+                tickfont=dict(size=10, color="#94A3B8"),
+                gridcolor="#E2E8F0",
+                linecolor="#CBD5E1"
             ),
             angularaxis=dict(
-                tickfont=dict(size=11, color="#1E293B", family="sans-serif"),
-                gridcolor="#E2E8F0"
+                tickfont=dict(size=12, color="#1E293B", family="system-ui, -apple-system, sans-serif"),
+                gridcolor="#E2E8F0",
+                linecolor="#CBD5E1",
+                direction="clockwise"
             )
         ),
         showlegend=False,
-        margin=dict(l=60, r=60, t=30, b=30),
-        height=380,
+        margin=dict(l=85, r=85, t=50, b=50),
+        height=400,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)"
     )
