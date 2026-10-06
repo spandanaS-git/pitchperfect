@@ -124,7 +124,11 @@ def test_export_scorecard_to_excel(demo_evidence_cards, taxonomy):
     # Read back with pandas to verify valid Excel structure
     import io
     excel_file = pd.ExcelFile(io.BytesIO(excel_bytes))
-    assert "Opportunity Leaderboard" in excel_file.sheet_names
-    assert "Corporate Wellness" in excel_file.sheet_names
-    df_lead = pd.read_excel(excel_file, sheet_name="Opportunity Leaderboard")
-    assert len(df_lead) == 7
+    assert "All 7 Opportunities" in excel_file.sheet_names
+    assert "Corporate Wellness Breakdown" in excel_file.sheet_names
+    # Verify Sheet 1 is the primary detailed breakdown
+    assert excel_file.sheet_names[0] == "Corporate Wellness Breakdown"
+    df_break = pd.read_excel(excel_file, sheet_name=excel_file.sheet_names[0])
+    assert "Priority / Metric" in df_break.columns
+    assert "Max Weight (pts)" in df_break.columns
+    assert "Score Earned (pts)" in df_break.columns

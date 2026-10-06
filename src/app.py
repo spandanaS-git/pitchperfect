@@ -412,18 +412,38 @@ with tab_scorecard:
             st.session_state["event_df"]
         )
 
-        # Build policy overrides from sidebar or defaults
+        # Ground credentials and experience in actual data & sidebar checkboxes
+        c_df = st.session_state["class_df"]
+        e_df = st.session_state["event_df"]
+
+        # Check for youth experience in class titles or event types
+        has_youth = False
+        if c_df is not None and "class_type" in c_df.columns:
+            has_youth = bool(c_df["class_type"].astype(str).str.contains(r"youth|teen|kid|student|school", case=False).any())
+        if not has_youth and e_df is not None and "event_type" in e_df.columns:
+            has_youth = bool(e_df["event_type"].astype(str).str.contains(r"youth|teen|kid|school", case=False).any())
+
+        # Check for community park venues
+        has_community_venue = False
+        if c_df is not None and "venue_name" in c_df.columns:
+            has_community_venue = bool(c_df["venue_name"].astype(str).str.contains(r"park|library|community|center", case=False).any())
+
+        # Check for outdoor event track record
+        has_outdoor = False
+        if e_df is not None and "event_type" in e_df.columns:
+            has_outdoor = bool(e_df["event_type"].astype(str).str.contains(r"outdoor|park|festival", case=False).any())
+
         policy_overrides = {
-            "liability_insurance_on_file": inst_insurance or st.session_state["is_demo"],
-            "background_check_on_file": inst_bg_check or st.session_state["is_demo"],
-            "sliding_scale_policy": inst_sliding or st.session_state["is_demo"],
-            "language_matches": (len(inst_languages) > 1) or st.session_state["is_demo"],
-            "professional_certifications": True if (st.session_state["is_demo"] or inst_years >= 1) else False,
+            "liability_insurance_on_file": bool(inst_insurance),
+            "background_check_on_file": bool(inst_bg_check),
+            "sliding_scale_policy": bool(inst_sliding),
+            "language_matches": bool(len(inst_languages) > 1),
+            "professional_certifications": bool(inst_years >= 1),
             "clear_rate_card_on_file": True,
-            "park_community_venue_history": True,
-            "youth_segment_experience": True,
-            "outdoor_event_track_record": True,
-            "private_event_experience": True,
+            "park_community_venue_history": has_community_venue,
+            "youth_segment_experience": has_youth,
+            "outdoor_event_track_record": has_outdoor,
+            "private_event_experience": bool(e_df is not None and len(e_df) >= 2),
         }
 
         scorecard_res = calculate_opportunity_scorecard(

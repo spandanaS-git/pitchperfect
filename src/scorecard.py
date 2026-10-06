@@ -370,14 +370,32 @@ def generate_bar_chart_figure(scorecard: ScorecardResult):
 
 def export_scorecard_to_excel(scorecard: ScorecardResult, selected_opp_id: Optional[str] = None) -> bytes:
     """
-    Exports the complete scorecard results into an executive multi-sheet Excel (.xlsx) file.
-    Sheet 1: All 7 Opportunities Summary
-    Sheet 2: Detailed Evidence Weight Breakdown & Actionable Gap Closure Plan
+    Exports the scorecard results into an executive multi-sheet Excel (.xlsx) file.
+    Sheet 1: The Selected Opportunity Breakdown (matches the UI table and JSON exactly)
+    Sheet 2: All 7 Opportunities Leaderboard
     """
     import io
     output = io.BytesIO()
     with pd.ExcelWriter(output, engine="openpyxl") as writer:
-        # Sheet 1: All 7 Opportunities Leaderboard
+        target_id = selected_opp_id or scorecard.top_opportunity_id
+        if target_id in scorecard.opportunity_scores:
+            target_opp = scorecard.opportunity_scores[target_id]
+            clean_sheet_name = f"{target_opp.opportunity_name[:25]} Breakdown".replace("/", "-")
+            
+            breakdown_rows = []
+            for b in target_opp.breakdown:
+                breakdown_rows.append({
+                    "Priority / Metric": b.label,
+                    "Max Weight (pts)": int(b.max_score),
+                    "Score Earned (pts)": b.score_earned,
+                    "Status": b.status,
+                    "Your Value": b.current_value,
+                    "Actionable Gap Recommendation": b.gap_recommendation or "Verified"
+                })
+            # Sheet 1: Primary Detailed Breakdown matching Web UI and JSON
+            pd.DataFrame(breakdown_rows).to_excel(writer, sheet_name=clean_sheet_name, index=False)
+
+        # Sheet 2: All 7 Opportunities Summary
         summary_rows = []
         for rank, opp_id in enumerate(scorecard.ranked_opportunities, 1):
             opp = scorecard.opportunity_scores[opp_id]
@@ -391,23 +409,6 @@ def export_scorecard_to_excel(scorecard: ScorecardResult, selected_opp_id: Optio
                 "Pitch Narrative Focus": opp.narrative_focus,
                 "Identified Gaps": len(opp.gaps)
             })
-        pd.DataFrame(summary_rows).to_excel(writer, sheet_name="Opportunity Leaderboard", index=False)
-
-        # Sheet 2: Detailed Breakdown for Selected Opportunity
-        target_id = selected_opp_id or scorecard.top_opportunity_id
-        if target_id in scorecard.opportunity_scores:
-            target_opp = scorecard.opportunity_scores[target_id]
-            breakdown_rows = []
-            for b in target_opp.breakdown:
-                breakdown_rows.append({
-                    "Priority / Metric": b.label,
-                    "Max Weight (pts)": int(b.max_score),
-                    "Score Earned (pts)": b.score_earned,
-                    "Status": b.status,
-                    "Your Verified Value": b.current_value,
-                    "Actionable Gap Recommendation": b.gap_recommendation or "Verified"
-                })
-            clean_sheet_name = target_opp.opportunity_name[:28].replace("/", "-")
-            pd.DataFrame(breakdown_rows).to_excel(writer, sheet_name=clean_sheet_name, index=False)
+        pd.DataFrame(summary_rows).to_excel(writer, sheet_name="All 7 Opportunities", index=False)
 
     return output.getvalue()
