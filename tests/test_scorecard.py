@@ -16,6 +16,7 @@ from scorecard import (
     load_taxonomy,
     calculate_opportunity_scorecard,
     generate_radar_chart_figure,
+    export_scorecard_to_excel,
     ScorecardResult
 )
 
@@ -113,3 +114,17 @@ def test_radar_chart_figure_generation(demo_evidence_cards, taxonomy):
     assert len(fig.data) > 0
     # Radar chart closes loop (7 categories + 1 duplicate = 8 points)
     assert len(fig.data[0].r) == 8
+
+def test_export_scorecard_to_excel(demo_evidence_cards, taxonomy):
+    result = calculate_opportunity_scorecard(demo_evidence_cards, taxonomy_dict=taxonomy)
+    excel_bytes = export_scorecard_to_excel(result, "corporate_wellness")
+    assert isinstance(excel_bytes, bytes)
+    assert len(excel_bytes) > 1000
+    
+    # Read back with pandas to verify valid Excel structure
+    import io
+    excel_file = pd.ExcelFile(io.BytesIO(excel_bytes))
+    assert "Opportunity Leaderboard" in excel_file.sheet_names
+    assert "Corporate Wellness" in excel_file.sheet_names
+    df_lead = pd.read_excel(excel_file, sheet_name="Opportunity Leaderboard")
+    assert len(df_lead) == 7

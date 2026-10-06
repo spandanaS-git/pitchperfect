@@ -31,7 +31,8 @@ from evidence import (
 )
 from scorecard import (
     calculate_opportunity_scorecard,
-    generate_radar_chart_figure
+    generate_radar_chart_figure,
+    export_scorecard_to_excel
 )
 
 # Page Configuration
@@ -535,14 +536,25 @@ with tab_scorecard:
             else:
                 st.info("No critical data gaps detected. All primary proof requirements are verified.")
 
-            # Download single opportunity report
-            st.download_button(
-                label=f"📥 Download {sel_opp.opportunity_name} Scorecard (JSON)",
-                data=sel_opp.model_dump_json(indent=2),
-                file_name=f"scorecard_{sel_opp.opportunity_id}.json",
-                mime="application/json",
-                use_container_width=True
-            )
+            # Download Reports (Excel and JSON side by side)
+            col_d_xlsx, col_d_json = st.columns(2)
+            with col_d_xlsx:
+                xlsx_bytes = export_scorecard_to_excel(scorecard_res, sel_opp.opportunity_id)
+                st.download_button(
+                    label="📊 Download Excel (.xlsx)",
+                    data=xlsx_bytes,
+                    file_name=f"scorecard_{sel_opp.opportunity_id}.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    use_container_width=True
+                )
+            with col_d_json:
+                st.download_button(
+                    label="📥 Export JSON",
+                    data=sel_opp.model_dump_json(indent=2),
+                    file_name=f"scorecard_{sel_opp.opportunity_id}.json",
+                    mime="application/json",
+                    use_container_width=True
+                )
 
 with tab_preview:
     st.subheader("Verified Data Preview (PII-Scrubbed)")

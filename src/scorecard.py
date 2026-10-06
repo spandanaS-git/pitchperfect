@@ -367,3 +367,47 @@ def generate_bar_chart_figure(scorecard: ScorecardResult):
     )
 
     return fig
+
+def export_scorecard_to_excel(scorecard: ScorecardResult, selected_opp_id: Optional[str] = None) -> bytes:
+    """
+    Exports the complete scorecard results into an executive multi-sheet Excel (.xlsx) file.
+    Sheet 1: All 7 Opportunities Summary
+    Sheet 2: Detailed Evidence Weight Breakdown & Actionable Gap Closure Plan
+    """
+    import io
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        # Sheet 1: All 7 Opportunities Leaderboard
+        summary_rows = []
+        for rank, opp_id in enumerate(scorecard.ranked_opportunities, 1):
+            opp = scorecard.opportunity_scores[opp_id]
+            summary_rows.append({
+                "Rank": rank,
+                "Opportunity": opp.opportunity_name,
+                "Readiness Score": f"{opp.total_score} / 100",
+                "Tier": opp.tier,
+                "Target Buyer": opp.buyer,
+                "Buyer Priority": opp.buyer_priority,
+                "Pitch Narrative Focus": opp.narrative_focus,
+                "Identified Gaps": len(opp.gaps)
+            })
+        pd.DataFrame(summary_rows).to_excel(writer, sheet_name="Opportunity Leaderboard", index=False)
+
+        # Sheet 2: Detailed Breakdown for Selected Opportunity
+        target_id = selected_opp_id or scorecard.top_opportunity_id
+        if target_id in scorecard.opportunity_scores:
+            target_opp = scorecard.opportunity_scores[target_id]
+            breakdown_rows = []
+            for b in target_opp.breakdown:
+                breakdown_rows.append({
+                    "Priority / Metric": b.label,
+                    "Max Weight (pts)": int(b.max_score),
+                    "Score Earned (pts)": b.score_earned,
+                    "Status": b.status,
+                    "Your Verified Value": b.current_value,
+                    "Actionable Gap Recommendation": b.gap_recommendation or "Verified"
+                })
+            clean_sheet_name = target_opp.opportunity_name[:28].replace("/", "-")
+            pd.DataFrame(breakdown_rows).to_excel(writer, sheet_name=clean_sheet_name, index=False)
+
+    return output.getvalue()
