@@ -29,6 +29,10 @@ from evidence import (
     export_cards_to_json,
     export_cards_to_dataframe
 )
+from scorecard import (
+    calculate_opportunity_scorecard,
+    generate_radar_chart_figure
+)
 
 # Page Configuration
 st.set_page_config(
@@ -161,18 +165,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-from evidence import (
-    compute_all_evidence_cards,
-    export_cards_to_json,
-    export_cards_to_dataframe
-)
-
 # Upload Tabs
-tab_upload, tab_summary, tab_evidence, tab_preview = st.tabs([
+tab_upload, tab_summary, tab_evidence, tab_scorecard, tab_preview = st.tabs([
     "📂 1. Ingest & Map Spreadsheets",
     "📊 2. Data Quality Summary",
     "📇 3. Evidence Cards (25 Metrics)",
-    "👀 4. Verified Data Preview"
+    "🎯 4. Opportunity Scorecards & Gap Plan",
+    "👀 5. Verified Data Preview"
 ])
 
 with tab_upload:
@@ -398,6 +397,126 @@ with tab_evidence:
                             <div style="font-size:0.75rem; color:#475569; font-style:italic; border-top:1px dashed #CBD5E1; padding-top:6px; margin-top:6px;">ℹ️ {card.method_note}</div>
                         </div>
                         """, unsafe_allow_html=True)
+
+with tab_scorecard:
+    st.subheader("🎯 Opportunity Scorecards & Actionable Gap Plans")
+    st.caption("Evaluates your verified Evidence Cards against 7 target buyer decision models to calculate 0–100 readiness scores.")
+
+    if st.session_state["class_df"] is None and st.session_state["survey_df"] is None and st.session_state["event_df"] is None:
+        st.info("No data loaded yet. Upload your spreadsheets in Tab 1 or click 'Test Drive with Demo Data' above.")
+    else:
+        cards = compute_all_evidence_cards(
+            st.session_state["class_df"],
+            st.session_state["survey_df"],
+            st.session_state["event_df"]
+        )
+
+        # Build policy overrides from sidebar or defaults
+        policy_overrides = {
+            "liability_insurance_on_file": inst_insurance or st.session_state["is_demo"],
+            "background_check_on_file": inst_bg_check or st.session_state["is_demo"],
+            "sliding_scale_policy": inst_sliding or st.session_state["is_demo"],
+            "language_matches": (len(inst_languages) > 1) or st.session_state["is_demo"],
+            "professional_certifications": True if (st.session_state["is_demo"] or inst_years >= 1) else False,
+            "clear_rate_card_on_file": True,
+            "park_community_venue_history": True,
+            "youth_segment_experience": True,
+            "outdoor_event_track_record": True,
+            "private_event_experience": True,
+        }
+
+        scorecard_res = calculate_opportunity_scorecard(
+            cards,
+            policy_overrides=policy_overrides
+        )
+
+        # Overview Section: Radar Chart + Top Match
+        col_radar, col_rank = st.columns([1.3, 1.0])
+
+        with col_radar:
+            st.markdown("#### 📡 7-Opportunity Readiness Radar")
+            fig = generate_radar_chart_figure(scorecard_res)
+            st.plotly_chart(fig, use_container_width=True)
+
+        with col_rank:
+            st.markdown("#### 🏆 Ranked Opportunity Matches")
+            top_opp = scorecard_res.opportunity_scores[scorecard_res.top_opportunity_id]
+            st.success(f"**#1 Recommendation: {top_opp.opportunity_name}**\n\nScore: **{top_opp.total_score}/100** • {top_opp.tier}")
+
+            for rank_idx, opp_id in enumerate(scorecard_res.ranked_opportunities, 1):
+                opp = scorecard_res.opportunity_scores[opp_id]
+                badge_bg = "#DCFCE7" if "Pitch-Ready" in opp.tier else ("#FEF3C7" if "Strong" in opp.tier else "#FEE2E2")
+                badge_fg = "#15803D" if "Pitch-Ready" in opp.tier else ("#B45309" if "Strong" in opp.tier else "#B91C1C")
+                
+                st.markdown(f"""
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 12px; margin-bottom:6px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px;">
+                    <div>
+                        <span style="font-weight:700; color:#334155;">#{rank_idx} {opp.opportunity_name}</span>
+                        <div style="font-size:0.75rem; color:#64748B;">{opp.buyer}</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <span style="font-weight:800; font-size:1.1rem; color:{opp.tier_color};">{opp.total_score}</span><span style="font-size:0.75rem; color:#64748B;">/100</span>
+                        <div><span style="font-size:0.7rem; font-weight:700; background:{badge_bg}; color:{badge_fg}; padding:2px 6px; border-radius:4px;">{opp.tier.split(' ')[0]}</span></div>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+
+        st.markdown("---")
+        st.markdown("### 🔍 Opportunity Drill-Down & Gap Analysis")
+
+        selected_opp_id = st.selectbox(
+            "Select an Opportunity to Inspect Buyer Priorities & Gap Closure Plan:",
+            scorecard_res.ranked_opportunities,
+            format_func=lambda x: f"{scorecard_res.opportunity_scores[x].opportunity_name} (Score: {scorecard_res.opportunity_scores[x].total_score}/100 — {scorecard_res.opportunity_scores[x].tier})"
+        )
+
+        sel_opp = scorecard_res.opportunity_scores[selected_opp_id]
+
+        # Buyer info banner
+        st.markdown(f"""
+        <div style="background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; border-radius:6px; margin-bottom:16px;">
+            <div style="font-weight:700; color:#1E40AF; font-size:0.95rem;">🎯 Target Buyer: {sel_opp.buyer}</div>
+            <div style="color:#1E3A8A; font-size:0.85rem; margin-top:2px;"><b>Buyer Priority:</b> {sel_opp.buyer_priority}</div>
+            <div style="color:#3B82F6; font-size:0.8rem; margin-top:4px;"><i><b>Pitch Narrative:</b> {sel_opp.narrative_focus}</i></div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        col_left_break, col_right_gap = st.columns([1.2, 1.0])
+
+        with col_left_break:
+            st.markdown("#### 📊 Evidence Weight Breakdown")
+            breakdown_data = []
+            for b in sel_opp.breakdown:
+                status_icon = "🟢" if b.status == "Strong" else ("🟡" if b.status == "Moderate" else "🔴")
+                breakdown_data.append({
+                    "Priority / Metric": b.label,
+                    "Max Weight": f"{int(b.max_score)} pts",
+                    "Score Earned": f"{b.score_earned} pts",
+                    "Status": f"{status_icon} {b.status}",
+                    "Your Value": b.current_value
+                })
+            st.dataframe(pd.DataFrame(breakdown_data), use_container_width=True, hide_index=True)
+
+        with col_right_gap:
+            st.markdown("#### 🛠️ Actionable Gap Closure Plan")
+            if sel_opp.total_score >= 85.0:
+                st.success("🎉 **Pitch-Ready Status!**\n\nYour verified evidence dossier meets and exceeds all buyer benchmarks for this opportunity. You are ready to generate your pitch proposal!")
+            
+            if sel_opp.gaps:
+                st.markdown("**Steps to unlock a higher score:**")
+                for gap_step in sel_opp.gaps:
+                    st.markdown(f"- 📌 {gap_step}")
+            else:
+                st.info("No critical data gaps detected. All primary proof requirements are verified.")
+
+            # Download single opportunity report
+            st.download_button(
+                label=f"📥 Download {sel_opp.opportunity_name} Scorecard (JSON)",
+                data=sel_opp.model_dump_json(indent=2),
+                file_name=f"scorecard_{sel_opp.opportunity_id}.json",
+                mime="application/json",
+                use_container_width=True
+            )
 
 with tab_preview:
     st.subheader("Verified Data Preview (PII-Scrubbed)")
