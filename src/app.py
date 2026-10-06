@@ -440,7 +440,22 @@ with tab_scorecard:
             st.plotly_chart(
                 fig,
                 use_container_width=True,
-                config={"displayModeBar": False, "responsive": True}
+                config={
+                    "displayModeBar": "hover",
+                    "displaylogo": False,
+                    "modeBarButtonsToRemove": [
+                        "zoom2d", "pan2d", "select2d", "lasso2d",
+                        "zoomIn2d", "zoomOut2d", "autoScale2d", "resetScale2d"
+                    ],
+                    "toImageButtonOptions": {
+                        "format": "png",
+                        "filename": "pitchperfect_opportunity_radar",
+                        "height": 700,
+                        "width": 900,
+                        "scale": 2
+                    },
+                    "responsive": True
+                }
             )
 
         with col_rank:
