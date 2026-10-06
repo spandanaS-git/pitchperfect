@@ -31,7 +31,8 @@ from evidence import (
 )
 from scorecard import (
     calculate_opportunity_scorecard,
-    generate_radar_chart_figure
+    generate_radar_chart_figure,
+    generate_bar_chart_figure
 )
 
 # Page Configuration
@@ -434,9 +435,32 @@ with tab_scorecard:
         col_radar, col_rank = st.columns([1.3, 1.0])
 
         with col_radar:
-            st.markdown("#### 📡 7-Opportunity Readiness Radar")
-            fig = generate_radar_chart_figure(scorecard_res)
-            st.plotly_chart(fig, use_container_width=True)
+            chart_view = st.radio("Visualization Mode", ["Radar View (7-Axis)", "Ranked Bar View (Full Zoom & Pan)"], horizontal=True)
+            if "Radar" in chart_view:
+                fig = generate_radar_chart_figure(scorecard_res)
+                st.plotly_chart(
+                    fig,
+                    use_container_width=True,
+                    config={
+                        "scrollZoom": True,
+                        "displayModeBar": True,
+                        "modeBarButtonsToRemove": ["zoom2d", "pan2d", "select2d", "lasso2d", "autoScale2d"],
+                        "displaylogo": False
+                    }
+                )
+                st.caption("🔍 *Tip: Scroll mouse-wheel or touch pinch to zoom in/out on the radar. Click the expand icon (top-right) for fullscreen.*")
+            else:
+                fig = generate_bar_chart_figure(scorecard_res)
+                st.plotly_chart(
+                    fig,
+                    use_container_width=True,
+                    config={
+                        "scrollZoom": True,
+                        "displayModeBar": True,
+                        "displaylogo": False
+                    }
+                )
+                st.caption("🔍 *Tip: Click and drag a box to zoom into any bar. Double-click to reset.*")
 
         with col_rank:
             st.markdown("#### 🏆 Ranked Opportunity Matches")

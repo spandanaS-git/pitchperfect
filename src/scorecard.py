@@ -295,6 +295,7 @@ def generate_radar_chart_figure(scorecard: ScorecardResult):
     ))
 
     fig.update_layout(
+        uirevision="radar_zoom",
         polar=dict(
             radialaxis=dict(
                 visible=True,
@@ -309,6 +310,51 @@ def generate_radar_chart_figure(scorecard: ScorecardResult):
         ),
         showlegend=False,
         margin=dict(l=60, r=60, t=30, b=30),
+        height=380,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)"
+    )
+
+    return fig
+
+def generate_bar_chart_figure(scorecard: ScorecardResult):
+    """
+    Creates an interactive horizontal bar chart supporting full Cartesian
+    box zoom, pan, hover tooltips, and axis scaling across all 7 opportunities.
+    """
+    import plotly.graph_objects as go
+
+    # Invert order so top ranked appears at top of horizontal chart
+    opp_ids = list(reversed(scorecard.ranked_opportunities))
+    names = [scorecard.opportunity_scores[oid].opportunity_name for oid in opp_ids]
+    scores = [scorecard.opportunity_scores[oid].total_score for oid in opp_ids]
+    colors = [scorecard.opportunity_scores[oid].tier_color for oid in opp_ids]
+    tiers = [scorecard.opportunity_scores[oid].tier for oid in opp_ids]
+
+    fig = go.Figure(go.Bar(
+        x=scores,
+        y=names,
+        orientation="h",
+        marker=dict(
+            color=colors,
+            line=dict(color="#1E293B", width=1)
+        ),
+        text=[f"  <b>{s}</b>/100" for s in scores],
+        textposition="outside",
+        hovertemplate="<b>%{y}</b><br>Readiness Score: %{x}/100<br><extra></extra>"
+    ))
+
+    fig.update_layout(
+        uirevision="bar_zoom",
+        xaxis=dict(
+            range=[0, 105],
+            title="Readiness Score (0–100)",
+            gridcolor="#E2E8F0"
+        ),
+        yaxis=dict(
+            tickfont=dict(size=11, color="#1E293B")
+        ),
+        margin=dict(l=40, r=40, t=20, b=40),
         height=380,
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)"
