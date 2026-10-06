@@ -5,6 +5,13 @@ Week 2 / Gate 1: Ingestion, Header Mapping, Privacy Scrubber, and Validation.
 """
 
 import os
+import sys
+
+# Ensure local module path is accessible
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
 import streamlit as st
 import pandas as pd
 from ingest import (
@@ -16,6 +23,11 @@ from ingest import (
     validate_survey_responses,
     validate_event_outcomes,
     CANONICAL_SCHEMAS
+)
+from evidence import (
+    compute_all_evidence_cards,
+    export_cards_to_json,
+    export_cards_to_dataframe
 )
 
 # Page Configuration
@@ -149,8 +161,19 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+from evidence import (
+    compute_all_evidence_cards,
+    export_cards_to_json,
+    export_cards_to_dataframe
+)
+
 # Upload Tabs
-tab_upload, tab_summary, tab_preview = st.tabs(["📂 1. Ingest & Map Spreadsheets", "📊 2. Data Quality Summary", "👀 3. Verified Data Preview"])
+tab_upload, tab_summary, tab_evidence, tab_preview = st.tabs([
+    "📂 1. Ingest & Map Spreadsheets",
+    "📊 2. Data Quality Summary",
+    "📇 3. Evidence Cards (25 Metrics)",
+    "👀 4. Verified Data Preview"
+])
 
 with tab_upload:
     st.subheader("Upload Your Spreadsheets (CSV or XLSX)")
@@ -308,9 +331,73 @@ with tab_summary:
         st.markdown("#### ⏱️ Timeline Coverage & Active Venues")
         if c_df is not None and "class_date" in c_df.columns:
             st.write(f"📅 **Date Span:** {c_df['class_date'].min()} to {c_df['class_date'].max()}")
-            if "venue_name" in c_df.columns:
-                venues = c_df["venue_name"].dropna().unique().tolist()
-                st.write(f"📍 **Documented Venues:** {', '.join(venues)}")
+with tab_evidence:
+    st.subheader("Verified Evidence Cards (25 Metrics across 6 Families)")
+    st.caption("Each Evidence Card represents an authentic proof point backed by your uploaded spreadsheets.")
+
+    if st.session_state["class_df"] is None and st.session_state["survey_df"] is None and st.session_state["event_df"] is None:
+        st.info("No data loaded yet. Upload spreadsheets in Tab 1 or click 'Test Drive with Demo Data' above.")
+    else:
+        cards = compute_all_evidence_cards(
+            st.session_state["class_df"],
+            st.session_state["survey_df"],
+            st.session_state["event_df"]
+        )
+
+        # Export Controls & Family Filter
+        col_fil, col_exp_json, col_exp_xlsx = st.columns([3, 1, 1])
+        families = ["All Families"] + sorted(list(set(c.family for c in cards)))
+        with col_fil:
+            selected_fam = st.selectbox("Filter by Metric Family", families)
+
+        filtered_cards = [c for c in cards if selected_fam == "All Families" or c.family == selected_fam]
+
+        with col_exp_json:
+            json_data = export_cards_to_json(cards)
+            st.download_button(
+                "📥 Export JSON",
+                json_data,
+                "evidence_cards.json",
+                "application/json",
+                use_container_width=True
+            )
+
+        with col_exp_xlsx:
+            df_cards = export_cards_to_dataframe(cards)
+            import io
+            xlsx_buffer = io.BytesIO()
+            with pd.ExcelWriter(xlsx_buffer, engine="openpyxl") as writer:
+                df_cards.to_excel(writer, index=False, sheet_name="EvidenceCards")
+            st.download_button(
+                "📥 Export Excel (.xlsx)",
+                xlsx_buffer.getvalue(),
+                "evidence_cards.xlsx",
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True
+            )
+
+        st.markdown(f"**Showing {len(filtered_cards)} Verified Evidence Cards**")
+        
+        # Grid layout (3 cards per row)
+        cols_per_row = 3
+        for i in range(0, len(filtered_cards), cols_per_row):
+            row_cols = st.columns(cols_per_row)
+            for j in range(cols_per_row):
+                if i + j < len(filtered_cards):
+                    card = filtered_cards[i + j]
+                    with row_cols[j]:
+                        st.markdown(f"""
+                        <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:16px; margin-bottom:14px; min-height:190px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                <span style="font-size:0.75rem; font-weight:700; color:#0369A1; background:#E0F2FE; padding:2px 8px; border-radius:6px;">{card.family}</span>
+                                <span style="font-size:0.75rem; color:#64748B;">{card.source_file}</span>
+                            </div>
+                            <div style="font-size:0.9rem; font-weight:600; color:#334155; margin-bottom:4px;">{card.label}</div>
+                            <div style="font-size:1.8rem; font-weight:800; color:#0F172A; margin-bottom:8px;">{card.formatted_value}</div>
+                            <div style="font-size:0.75rem; color:#64748B; margin-bottom:4px;">📅 {card.date_range} • 👥 Sample: {card.sample_size}</div>
+                            <div style="font-size:0.75rem; color:#475569; font-style:italic; border-top:1px dashed #CBD5E1; padding-top:6px; margin-top:6px;">ℹ️ {card.method_note}</div>
+                        </div>
+                        """, unsafe_allow_html=True)
 
 with tab_preview:
     st.subheader("Verified Data Preview (PII-Scrubbed)")
