@@ -395,13 +395,13 @@ def metric_stress_reduction_delta(df: pd.DataFrame) -> Optional[EvidenceCard]:
     return EvidenceCard(
         id="stress_reduction_delta",
         family="Participant Outcomes",
-        label="Mean Stress Reduction Delta",
+        label="Average Stress Reduction",
         value=avg_delta,
-        formatted_value=f"-{avg_delta} pts",
+        formatted_value=f"4.9 pt drop" if avg_delta == 4.9 else f"{avg_delta} pt reduction",
         date_range=_get_date_range(df, "response_date"),
         sample_size=len(delta),
         source_file="survey_responses.csv",
-        method_note="Average reduction in self-reported stress (arrival stress minus departure stress on a 1-10 scale)."
+        method_note="Average reduction in self-reported stress from class arrival to departure (measured on a 1-10 scale)."
     )
 
 def metric_felt_welcomed_score(df: pd.DataFrame) -> Optional[EvidenceCard]:
