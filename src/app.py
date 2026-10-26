@@ -128,9 +128,25 @@ with st.sidebar:
     inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], default=["English"], key="sb_languages")
     
     st.markdown("---")
+    if st.button("🔄 Apply Profile to Pitches & Bios", type="primary", use_container_width=True):
+        st.rerun()
+
+    # Live Confirmation Badge in Sidebar
+    active_loc = inst_location.strip() if (inst_location and inst_location.strip()) else "Chicago, IL"
+    active_disc = inst_disciplines.strip() if (inst_disciplines and inst_disciplines.strip()) else "Movement & Mindfulness"
+    active_nm = inst_name.strip() if (inst_name and inst_name.strip()) else "Your Name"
+    st.info(
+        f"**Active Profile:**\n\n"
+        f"👤 {active_nm}\n\n"
+        f"🧘 {active_disc}\n\n"
+        f"📍 {active_loc} • ⏳ {int(inst_years)} yr(s)"
+    )
+
+    st.markdown("---")
     st.caption("PitchPerfect v1.0")
 
 # Centrally construct Instructor Profile from live sidebar inputs
+print(f"[DEBUG_PROFILE] name={inst_name!r}, disciplines={inst_disciplines!r}, years={inst_years!r}, location={inst_location!r}")
 instructor_profile = {
     "name": inst_name.strip() if (inst_name and inst_name.strip()) else "Your Name",
     "disciplines": inst_disciplines.strip() if (inst_disciplines and inst_disciplines.strip()) else "Movement & Mindfulness",
@@ -144,6 +160,7 @@ instructor_profile = {
     "languages": inst_languages or ["English"]
 }
 st.session_state["instructor_profile"] = instructor_profile
+
 
 # App Header
 st.markdown('<div class="main-header">PitchPerfect: Turn Teaching Data into Partnership Pitches</div>', unsafe_allow_html=True)
@@ -661,18 +678,7 @@ with tab_pitchkit:
 
         scorecard_res = calculate_opportunity_scorecard(cards, policy_overrides=policy_overrides)
 
-        instructor_profile = {
-            "name": inst_name.strip() if (inst_name and inst_name.strip()) else "Your Name",
-            "disciplines": inst_disciplines.strip() if (inst_disciplines and inst_disciplines.strip()) else "Movement & Mindfulness",
-            "years_teaching": int(inst_years) if inst_years is not None else 1,
-            "email": inst_email.strip() if (inst_email and inst_email.strip()) else "contact@pitchperfect.org",
-            "phone": inst_phone.strip() if (inst_phone and inst_phone.strip()) else "(312) 555-0100",
-            "location": inst_location.strip() if (inst_location and inst_location.strip()) else "Chicago, IL",
-            "insurance": bool(inst_insurance),
-            "background_check": bool(inst_bg_check),
-            "sliding_scale": bool(inst_sliding),
-            "languages": inst_languages or ["English"]
-        }
+
 
         # Opportunity Selection Controls & Batch Export Bar
         col_sel, col_zip = st.columns([2.5, 1.2])
