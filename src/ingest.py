@@ -14,16 +14,16 @@ import numpy as np
 # Canonical schemas as defined in docs/data_schema_spec.md
 CANONICAL_SCHEMAS = {
     "class_history": {
-        "required": ["class_date", "class_time", "class_type", "capacity", "attended", "price"],
-        "optional": ["format", "venue_type", "venue_name", "membership_type", "client_id", "first_visit", "zip"]
+        "required": ["class_date", "class_time", "class_type", "capacity", "attended"],
+        "optional": ["price", "format", "venue_type", "venue_name", "membership_type", "client_id", "first_visit", "zip"]
     },
     "survey_responses": {
         "required": ["response_date", "overall_rating", "likelihood_to_return"],
         "optional": ["class_type", "felt_welcomed", "stress_before", "stress_after", "would_recommend", "comment", "consent_to_quote", "audience_segment"]
     },
     "event_outcomes": {
-        "required": ["event_date", "event_name", "event_type", "expected_attendance", "actual_attendance"],
-        "optional": ["host_organization_type", "revenue", "cost", "repeat_booking", "host_rating", "notes"]
+        "required": ["event_date", "actual_attendance"],
+        "optional": ["event_name", "event_type", "expected_attendance", "host_organization_type", "revenue", "cost", "repeat_booking", "host_rating", "notes"]
     }
 }
 
@@ -53,13 +53,13 @@ VENDOR_PRESETS: Dict[str, Dict[str, List[str]]] = {
         "consent_to_quote": ["consent", "permission to quote", "may we quote", "quote consent", "allow quote", "permission"]
     },
     "event_outcomes": {
-        "event_date": ["date", "event date", "date held", "start date"],
-        "event_name": ["event", "event title", "workshop name", "program name", "workshop", "title"],
-        "event_type": ["type", "event category", "category", "event type"],
+        "event_date": ["date", "event date", "date held", "start date", "occurrence_date", "occurrence date"],
+        "event_name": ["event", "event title", "workshop name", "program name", "workshop", "title", "event_code", "event code"],
+        "event_type": ["type", "event category", "category", "event type", "weekday"],
         "expected_attendance": ["expected", "target attendance", "committed headcount", "rsvp count", "target"],
-        "actual_attendance": ["actual", "total attendance", "turnout", "attended", "actual attendees"],
+        "actual_attendance": ["actual", "total attendance", "turnout", "attended", "actual attendees", "tickets", "checked in"],
         "host_organization_type": ["client type", "host type", "organization", "industry", "host category"],
-        "revenue": ["revenue", "gross revenue", "payment", "total pay", "earnings"],
+        "revenue": ["revenue", "gross revenue", "payment", "total pay", "earnings", "ticket_revenue_usd", "ticket revenue usd"],
         "repeat_booking": ["repeat", "repeat booking", "booked again", "rebooked", "follow up contract"],
         "host_rating": ["host rating", "organizer rating", "client satisfaction", "host score"]
     }
@@ -187,7 +187,8 @@ def validate_class_history(df: pd.DataFrame) -> Dict[str, Any]:
     try:
         df["capacity"] = pd.to_numeric(df["capacity"], errors="coerce")
         df["attended"] = pd.to_numeric(df["attended"], errors="coerce")
-        df["price"] = pd.to_numeric(df["price"], errors="coerce")
+        if "price" in df.columns:
+            df["price"] = pd.to_numeric(df["price"], errors="coerce")
     except Exception as e:
         errors.append(f"Numeric conversion error: {str(e)}")
 
@@ -279,10 +280,11 @@ def validate_event_outcomes(df: pd.DataFrame) -> Dict[str, Any]:
         errors.append("File is empty (0 rows).")
         return {"valid": False, "errors": errors, "warnings": warnings, "row_count": 0}
 
-    df["expected_attendance"] = pd.to_numeric(df["expected_attendance"], errors="coerce")
     df["actual_attendance"] = pd.to_numeric(df["actual_attendance"], errors="coerce")
+    if "expected_attendance" in df.columns:
+        df["expected_attendance"] = pd.to_numeric(df["expected_attendance"], errors="coerce")
 
-    invalid_att = df[(df["expected_attendance"] < 0) | (df["actual_attendance"] < 0)]
+    invalid_att = df[df["actual_attendance"] < 0]
     if len(invalid_att) > 0:
         errors.append("Event attendance numbers cannot be negative.")
 

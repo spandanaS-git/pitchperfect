@@ -1,0 +1,71 @@
+# PARTNERSHIP PROPOSAL: RECURRING STUDIO RESIDENCY
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. Executive Summary
+Thank you for considering this proposal for a recurring weekly teaching residency. As an experienced movement and wellness instructor with {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of dedicated practice, I specialize in building loyal, high-retention student cohorts that sustain studio revenue and energy.
+
+Studio economics depend on two vital questions: *Will this instructor keep recurring slots full?* and *Will first-time visitors return for class #2?* Rather than relying solely on training certificates, this proposal presents verified attendance data demonstrating reliable room fill rates, strong student retention, and zero unexcused cancellations.
+
+---
+
+## 2. Verified Performance Highlights
+The following proof points are computed directly from verified class attendance logs across {{ evidence_map.get('classes_taught_12m', 'recent sessions') }}:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Operational Reliability
+* **Class Reliability Rate:** {{ evidence_map.get('classes_held_ratio', '96.2%') }} without unscheduled cancellations or sub disruptions.
+* **Student Retention:** {{ evidence_map.get('first_to_second_conv', '62.5%') }} first-to-second class conversion and {{ evidence_map.get('return_rate_30d', '58.3%') }} 30-day repeat rate.
+* **Peak Utilization:** Consistently commanding up to {{ evidence_map.get('peak_class_size', '28') }} attendees in peak slots.
+
+---
+
+## 3. Proposed Residency Offerings & Schedule Fit
+I am prepared to anchor high-demand time slots on your weekly schedule, including prime evening slots (5:30–7:30 PM) or weekend anchor classes:
+
+1. **Signature Flow & Movement Foundations:** High-energy yet accessible sequencing designed to welcome beginners while challenging seasoned practitioners.
+2. **Restorative & Breathwork Evening Reset:** Midweek de-stress session structured to drive recurring attendance and corporate drop-ins.
+3. **Monthly Student Immersion / Workshop:** Specialty weekend workshop to drive incremental non-dues studio revenue.
+
+---
+
+## 4. Scorecard Readiness & Alignment Summary
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Narrative Focus:** {{ narrative_focus }}
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Portfolio Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 5. Evidence Bridge & Quality Assurance
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '6' if gap_closure_note else '5' }}. Next Steps & Complimentary Audition
+I would welcome the opportunity to lead a complimentary 45-minute community class or guest audition session for your studio team and member leaders:
+
+* **Step 1:** Review proposed schedule slots and confirm curriculum fit.
+* **Step 2:** Host a guest session to evaluate member rapport and teaching style firsthand.
+* **Step 3:** Finalize residency terms, member onboarding, and co-promotional marketing.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}

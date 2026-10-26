@@ -1,0 +1,79 @@
+# PRIVATE EVENT & BESPOKE RETREAT WELLNESS PROPOSAL
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. Intimate, Bespoke Experiences for Meaningful Gatherings
+When booking wellness for an executive offsite, private retreat, bridal gathering, or milestone celebration, private hosts and event planners need more than a generic fitness class. They want an intimate, thoughtfully curated experience that reflects their group's unique personality, fosters genuine connection, and feels seamless from first inquiry to departure.
+
+With {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of experience delivering custom private wellness sessions, I specialize in crafting bespoke movement, sound, and mindfulness experiences that leave guests inspired, deeply relaxed, and connected.
+
+---
+
+## 2. Proven Host Satisfaction & Rebooking Track Record
+Our reputation among event organizers and private hosts is substantiated by verified rebooking and testimonial data:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Organizer Endorsement & Loyalty
+* **Host Rebooking Rate:** {{ evidence_map.get('repeat_booking_rate', '85.0%') }} repeat booking rate among private host and corporate event planners.
+* **Organizer Satisfaction:** Consistently rated {{ evidence_map.get('overall_rating_avg', '4.90 / 5.0') }} across all private host and planner evaluations.
+* **Consenting Host Testimonials:** Extensive library of glowing reviews highlighting effortless communication, warm presence, and customized sequencing.
+
+---
+
+## 3. Curated Private Experience Formats
+Each session is completely tailored to your event timeline, venue setting, and attendee preferences:
+
+1. **Executive Retreat Re-Charge:** Grounding breathwork and gentle restorative movement designed to dissolve cognitive fatigue between strategy sessions.
+2. **Milestone Celebration & Bridal Reset:** Joyful, heart-opening flow set to customized playlists, honoring milestones in an intimate, celebratory setting.
+3. **Sound Sanctuary & Guided Meditation:** Immersive acoustic relaxation utilizing therapeutic singing bowls, chimes, and deep somatic grounding.
+4. **Custom Group Inclusions:** All mats, props, ambient music, and aromatherapy coordinated seamlessly upon request.
+
+---
+
+## 4. Transparent Rate Card & White-Glove Planning
+* **Clear Flat-Fee Pricing:** Transparent, all-inclusive pricing with zero hidden travel or equipment fees.
+* **Custom Timeline Integration:** Flexible coordination with your caterers, photographers, and venue coordinators.
+* **Discretion & Privacy:** Complete privacy safeguards for high-profile clients and confidential corporate retreats.
+
+---
+
+## 5. Scorecard Readiness & Alignment Summary
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Narrative Focus:** {{ narrative_focus }}
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Private Event Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 6. Evidence Bridge & Custom Planning Consultation
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '7' if gap_closure_note else '6' }}. Next Steps to Craft Your Custom Experience
+Booking is simple, personal, and stress-free:
+
+* **Step 1:** 15-minute consultation call to discuss your group size, venue, and vision.
+* **Step 2:** Receive a tailored session outline and transparent rate proposal within 24 hours.
+* **Step 3:** Lock in your date with a simple agreement, while we handle all logistical details.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}

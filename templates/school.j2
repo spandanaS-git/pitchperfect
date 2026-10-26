@@ -1,0 +1,80 @@
+# SCHOOL & YOUTH WELLNESS PROGRAM PROPOSAL
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. Educational Vision & Youth Development
+Thank you for evaluating this proposal for student movement, breathwork, and emotional regulation programming. Today's students face unprecedented academic, emotional, and social pressures. When youth learn evidence-based somatic tools to de-escalate anxiety and focus their attention, they thrive both in the classroom and on the athletic field.
+
+With {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of experience facilitating movement and wellness, I bring a vetted, compliance-ready approach specifically adapted to youth environments, public school schedules, and athletic team conditioning.
+
+---
+
+## 2. Institutional Safety, Vetting & Compliance Verification
+School leadership requires absolute rigor in safety, contractor vetting, and classroom management:
+
+* **Background Check on File:** Verified FBI and State background clearances completed and up to date for youth contact.
+* **Commercial Liability Insurance:** Active general liability policy ($2M aggregate) indemnifying school district facilities.
+* **Trauma-Informed Youth Protocol:** Pacing and language structured around physical safety, consent, and emotional containment.
+
+---
+
+## 3. Verified Youth & Classroom Instruction Evidence
+Our operational track record in commanding youth groups and structured educational spaces:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Group Management & Educational Fit
+* **Classroom & Assembly Capacity:** Proven track record commanding groups of {{ evidence_map.get('peak_class_size', '35+') }} students while maintaining classroom focus and engagement.
+* **Institutional Satisfaction:** Strong host ratings ({{ evidence_map.get('overall_rating_avg', '4.85 / 5.0') }}) from previous educational and community youth hosts.
+* **Attendance Reliability:** {{ evidence_map.get('classes_held_ratio', '96.2%') }} reliability rate across scheduled school sessions.
+
+---
+
+## 4. Adaptable Youth Curriculum Modules
+Programs can be seamlessly integrated into Physical Education classes, advisory periods, or after-school athletics:
+
+1. **Focus & Calm Classroom Reset (20–30 mins):** Gentle desk-side or gym floor breathwork and physical alignment to improve focus before testing or advisory periods.
+2. **Student-Athlete Mobility & Mental Conditioning (45–60 mins):** Joint stabilization, functional flexibility, and breathing techniques to enhance athletic recovery and prevent sports injury.
+3. **Faculty & Staff De-Stress Sessions (45 mins):** Specialized teacher-wellness sessions scheduled during professional development or after dismissal to reduce educator burnout.
+
+---
+
+## 5. Scorecard Readiness & Alignment Summary
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Narrative Focus:** {{ narrative_focus }}
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Youth Program Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 6. Evidence Bridge & Observation Protocol
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '7' if gap_closure_note else '6' }}. Next Steps for District / School Approval
+We make district vendor onboarding straightforward and compliant:
+
+* **Step 1:** Submit vendor credential packet (background check, certificate of insurance, W-9).
+* **Step 2:** Conduct a 30-minute campus demonstration class for athletic directors or PE faculty.
+* **Step 3:** Finalize semester schedule, roster expectations, and student engagement goals.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}

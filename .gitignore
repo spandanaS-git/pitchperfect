@@ -17,7 +17,11 @@ ENV/
 .coverage
 htmlcov/
 
-# OS
+# OS & Exports
 .DS_Store
 Thumbs.db
 *.tmp
+*.docx
+*.zip
+Files_Shared/
+temp_*.py

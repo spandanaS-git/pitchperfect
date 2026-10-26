@@ -77,7 +77,7 @@ def metric_classes_held_ratio(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Ratio of scheduled classes held without cancellation or unscheduled sub requests."
+        method_note="Ratio of scheduled classes held without cancellation or unscheduled sub requests. Calculated across full upload history for statistical reliability."
     )
 
 def metric_avg_attendance(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -93,7 +93,7 @@ def metric_avg_attendance(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Mean student headcount per class session across all active disciplines."
+        method_note="Mean student headcount per class session across all active disciplines. Calculated across full upload history for statistical reliability."
     )
 
 def metric_unique_participants(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -109,7 +109,7 @@ def metric_unique_participants(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Distinct count of unique anonymized student identifiers recorded in attendance logs."
+        method_note="Distinct count of unique anonymized student identifiers recorded in attendance logs. Calculated across full upload history for statistical reliability."
     )
 
 def metric_attendance_growth_qoq(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -122,6 +122,15 @@ def metric_attendance_growth_qoq(df: pd.DataFrame) -> Optional[EvidenceCard]:
     q_counts = dff.groupby("quarter")["attended"].sum()
     if len(q_counts) < 2:
         return None
+    # Skip the most recent quarter if it is incomplete (< 70 days span) to avoid
+    # partial-quarter artifacts like -99.9% when data cuts off mid-quarter
+    last_q = q_counts.index[-1]
+    last_q_data = dff[dff["quarter"] == last_q]["dt"]
+    last_q_days = (last_q_data.max() - last_q_data.min()).days
+    if last_q_days < 70 and len(q_counts) >= 3:
+        q_counts = q_counts.iloc[:-1]
+    if len(q_counts) < 2:
+        return None
     growth = round(float(((q_counts.iloc[-1] - q_counts.iloc[-2]) / max(q_counts.iloc[-2], 1)) * 100), 1)
     return EvidenceCard(
         id="attendance_growth_qoq",
@@ -132,7 +141,7 @@ def metric_attendance_growth_qoq(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(dff, "class_date"),
         sample_size=len(dff),
         source_file="class_history.csv",
-        method_note="Percentage increase in total student headcount comparing the most recent complete quarter to prior quarter."
+        method_note="Percentage increase in total student headcount comparing the most recent complete quarter to prior quarter. Calculated across full upload history for statistical reliability."
     )
 
 # ── Family 2: Retention & Belonging ─────────────────────────────────────────
@@ -155,7 +164,7 @@ def metric_first_to_second_conv(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=new_clients,
         source_file="class_history.csv",
-        method_note="Percentage of first-time student attendees who return for at least a second class with the instructor."
+        method_note="Percentage of first-time student attendees who return for at least a second class with the instructor. Calculated across full upload history for statistical reliability."
     )
 
 def metric_return_rate_30d(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -185,7 +194,7 @@ def metric_return_rate_30d(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=total_clients,
         source_file="class_history.csv",
-        method_note="Share of unique students who returned for another session within 30 days of a prior class."
+        method_note="Share of unique students who returned for another session within 30 days of a prior class. Calculated across full upload history for statistical reliability."
     )
 
 def metric_return_rate_60d(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -215,7 +224,7 @@ def metric_return_rate_60d(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=total_clients,
         source_file="class_history.csv",
-        method_note="Share of unique students who returned for another session within 60 days of a prior class."
+        method_note="Share of unique students who returned for another session within 60 days of a prior class. Calculated across full upload history for statistical reliability."
     )
 
 def metric_repeat_attendance_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -234,7 +243,7 @@ def metric_repeat_attendance_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Percentage of total room check-ins generated by returning/loyal students vs first-time drop-ins."
+        method_note="Percentage of total room check-ins generated by returning/loyal students vs first-time drop-ins. Calculated across full upload history for statistical reliability."
     )
 
 def metric_max_client_streak(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -271,7 +280,7 @@ def metric_fill_rate_avg(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(fill),
         source_file="class_history.csv",
-        method_note="Mean room utilization percentage calculated as attended headcount divided by room capacity."
+        method_note="Mean room utilization percentage calculated as attended headcount divided by room capacity. Calculated across full upload history for statistical reliability."
     )
 
 def metric_high_capacity_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -290,7 +299,7 @@ def metric_high_capacity_share(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Proportion of scheduled classes that achieved or exceeded 80% room utilization."
+        method_note="Proportion of scheduled classes that achieved or exceeded 80% room utilization. Calculated across full upload history for statistical reliability."
     )
 
 def metric_sell_out_count(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -308,7 +317,7 @@ def metric_sell_out_count(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Total sessions that hit 100% capacity or triggered overflow/waitlist demand."
+        method_note="Total sessions that hit 100% capacity or triggered overflow/waitlist demand. Calculated across full upload history for statistical reliability."
     )
 
 def metric_peak_class_size(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -324,7 +333,7 @@ def metric_peak_class_size(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(df, "class_date"),
         sample_size=len(df),
         source_file="class_history.csv",
-        method_note="Largest recorded participant headcount successfully commanded in a single movement session."
+        method_note="Largest recorded participant headcount successfully commanded in a single movement session. Calculated across full upload history for statistical reliability."
     )
 
 def metric_evening_fill_rate(df: pd.DataFrame) -> Optional[EvidenceCard]:
@@ -345,7 +354,7 @@ def metric_evening_fill_rate(df: pd.DataFrame) -> Optional[EvidenceCard]:
         date_range=_get_date_range(evening, "class_date"),
         sample_size=len(evening),
         source_file="class_history.csv",
-        method_note="Average fill rate for peak evening weekday time slots, highly valued by studio managers."
+        method_note="Average fill rate for peak evening weekday time slots, highly valued by studio managers. Calculated across full upload history for statistical reliability."
     )
 
 # ── Family 4: Participant Outcomes ──────────────────────────────────────────

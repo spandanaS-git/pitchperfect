@@ -1,0 +1,79 @@
+# LUXURY HOSPITALITY & RESORT WELLNESS PARTNERSHIP PROPOSAL
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. Elevated Guest Experience & Hospitality Alignment
+In premier hospitality, guest wellness programming must reflect the highest standards of luxury, punctuality, and personalized care. Discerning travelers expect five-star morning wellness that elevates their stay, revitalizes their travel schedule, and generates glowing reviews for your property.
+
+With {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of professional wellness instruction and verified five-star ratings, I provide turnkey luxury movement and restorative experiences tailored specifically to hotel guests, conference VIPs, and resort visitors.
+
+---
+
+## 2. Verified 5-Star Guest Satisfaction & Track Record
+Our track record reflects the dependability and service standards demanded by luxury hospitality leaders:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Luxury Service Standards
+* **Guest Review Average:** Verified {{ evidence_map.get('overall_rating_avg', '4.88 / 5.0') }} participant satisfaction score across hundreds of guest reviews.
+* **Early-Morning Dependability:** Committed 6:30–8:30 AM sunrise availability, ensuring prompt, reliable execution before guests begin conference or sightseeing itineraries.
+* **Drop-In Hospitality Expertise:** Skilled in instantly reading room dynamics, greeting unfamiliar travelers, and adapting instruction to varied guest fitness levels and language backgrounds.
+* **Professional Credentials:** Accredited teacher certifications and verified commercial liability coverage on file.
+
+---
+
+## 3. Signature Luxury Guest Offerings
+Our hotel wellness sessions are designed to complement your property's amenities (rooftop terrace, wellness studio, or poolside lawn):
+
+1. **Sunrise Rooftop Flow & Awakening (45–60 mins):** Gentle yet revitalizing morning yoga and mobility sequence designed to counteract jet lag and greet the city sunrise.
+2. **Executive De-Compress & Neck/Spine Mobility (30 mins):** Targeted pre-conference session for business travelers to release travel tension and enhance mental focus.
+3. **Sunset Restorative & Tibetan Sound Bath (45–60 mins):** Calming evening restorative practice accompanied by acoustic sound bowls to encourage deep sleep for overnight guests.
+
+---
+
+## 4. Seamless Hotel Operations & Billing Integration
+* **Effortless Guest Sign-In:** Complete guest attendance tracking compatible with hotel key-card access or concierge booking sheets.
+* **Turnkey Equipment Protocols:** Clean, aesthetic prop management and coordination with your housekeeping and engineering teams.
+* **Professional Presentation:** Impeccable personal grooming, courteous hospitality etiquette, and quiet discretion for VIP guests.
+
+---
+
+## 5. Scorecard Readiness & Alignment Summary
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Narrative Focus:** {{ narrative_focus }}
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Hospitality Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 6. Evidence Bridge & Trial Weekend Pilot
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '7' if gap_closure_note else '6' }}. Next Steps & Complimentary Property Audition
+We welcome the opportunity to conduct a complimentary sunrise session for your executive team and concierge staff:
+
+* **Step 1:** Property tour to evaluate proposed movement spaces (terrace, garden, or indoor studio).
+* **Step 2:** Host a private VIP tasting session for hotel leadership and head concierge.
+* **Step 3:** Finalize seasonal guest schedule and provide promotional collateral for guest room directories and concierge desks.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}

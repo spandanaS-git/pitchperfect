@@ -207,6 +207,11 @@ def calculate_opportunity_scorecard(
             total_score += earned
             
             clean_label = metric_key.replace("_", " ").title()
+            clean_label = (
+                clean_label.replace(" Avg", " Average")
+                .replace(" Count", "")
+                .replace(" Ratio", " Rate")
+            )
             breakdown.append(EvidenceBreakdown(
                 metric_key=metric_key,
                 label=clean_label,

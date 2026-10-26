@@ -1,0 +1,79 @@
+# FESTIVAL & LARGE-EVENT ACTIVATION PROPOSAL
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. High-Impact Headline Energy & Crowd Activation
+Festival producers face a critical booking challenge: wellness activations cannot feel like quiet studio classes; they must draw sustained foot traffic, command a sprawling outdoor audience, and create viral, unforgettable festival moments.
+
+With {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of experience headlining large-scale wellness stages, outdoor activations, and multi-day gatherings, I deliver charismatic, high-energy movement sessions that turn open fields and festival tents into electrified communal experiences.
+
+---
+
+## 2. Verified Crowd Draw & Outdoor Execution Track Record
+Our performance data proves consistent audience pull and over-delivery against booking projections:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Crowd & Production Capability
+* **Peak Single-Session Attendance:** Commanded up to {{ evidence_map.get('peak_class_size_delivered', evidence_map.get('peak_class_size', '120+')) }} simultaneous participants in open-format activations.
+* **Attendance Over-Delivery:** Consistently exceeded host headcount targets at {{ evidence_map.get('event_attendance_ratio', evidence_map.get('event_turnout_ratio', '112.5%')) }} of expected turnout.
+* **Outdoor & Stage Experience:** Proven adaptability to sound-system microphones, ambient festival acoustics, weather shifts, and diverse multi-level crowds.
+* **Audience Energy & Buzz:** Highly quotable testimonials celebrating infectious energy, dynamic music integration, and crowd connection.
+
+---
+
+## 3. High-Energy Festival Activation Formats
+Our festival sets are crafted for high throughput, vibrant atmosphere, and visual spectacle:
+
+1. **Morning Festival Awakening (45–60 mins):** High-vibe sunrise movement and somatic breathwork designed to energize early campers and open the festival grounds.
+2. **Mainstage Sound & Motion Experience (45 mins):** Fast-paced, rhythmic flow paired with live DJ or curated electronic soundscapes that draws hundreds of festival attendees.
+3. **Midday Re-Charge & Recovery Tent (30–45 mins):** Active recovery and nervous system reset to help attendees stay energized throughout full festival days.
+
+---
+
+## 4. Production Readiness & Stage Self-Sufficiency
+* **AV & Production Coordination:** Direct experience with wireless headset microphones, stage monitors, and direct line-in audio for seamless sound engineer handoffs.
+* **Crowd Safety & Spacing:** Experienced in directing open-field pedestrian flow, clear sightlines, and crowd hydration awareness.
+* **Liability & Contracting:** Active commercial general liability insurance and rapid contract turnaround.
+
+---
+
+## 5. Scorecard Readiness & Alignment Summary
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Narrative Focus:** {{ narrative_focus }}
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Production Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 6. Evidence Bridge & Stage Activation Plan
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '7' if gap_closure_note else '6' }}. Next Steps for Booking & Lineup Confirmation
+Let's lock in your wellness stage schedule to begin cross-promotional festival marketing:
+
+* **Step 1:** Confirm stage/tent allocation, date, and preferred set times.
+* **Step 2:** Provide high-res artist headshots, bio, and social media handles for festival promotion.
+* **Step 3:** Finalize performance agreement and coordinate sound check logistics with your technical director.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}

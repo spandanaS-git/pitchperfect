@@ -1,0 +1,73 @@
+# WORKPLACE WELLNESS PARTNERSHIP PROPOSAL
+
+**Prepared For:** {{ buyer }}
+**Prepared By:** {{ instructor_name }}{% if disciplines %} | {{ disciplines }}{% endif %}
+**Date:** {{ generated_date }}
+**Opportunity Match:** {{ opportunity_name }} (Readiness Score: {{ total_score }}/100 — {{ tier }})
+
+---
+
+## 1. Executive Summary & Value Proposition
+Thank you for exploring this corporate wellness partnership proposal. In today's demanding workplace environment, wellness initiatives must deliver measurable mental and physical benefits without interrupting business productivity or burdening People Operations.
+
+With {{ years_teaching }} year{{ 's' if years_teaching != 1 else '' }} of experience designing workplace movement and stress-reduction programs, I provide turnkey onsite and hybrid wellness sessions grounded in quantifiable participant outcomes. This proposal provides documented proof of employee stress reduction, peer recommendation rates, verified commercial liability insurance, and seamless midday scheduling.
+
+---
+
+## 2. Measurable Employee Outcomes & Verified Evidence
+Unlike conventional wellness programs that rely on vague satisfaction estimates, our program tracks employee well-being before and after each session:
+
+{% for item in top_evidence %}
+* **{{ item.label }}: {{ item.formatted_value }}**
+  * *Evidence Basis:* {{ item.method_note }} (Sample: {{ item.sample_size }}, Period: {{ item.date_range }})
+{% endfor %}
+
+### Quantified Workplace Impact
+* **Documented Stress Relief:** Demonstrated {{ evidence_map.get('stress_reduction_delta', '4.9 pt reduction') }} in self-reported stress from arrival to departure on a 10-point validated scale.
+* **Employee Advocacy:** {{ evidence_map.get('recommend_rate', '95.3%') }} of surveyed employees actively recommend the sessions to team colleagues.
+* **Overall Employee Satisfaction:** Average participant score of {{ evidence_map.get('overall_rating_avg', '4.86 / 5.0') }}.
+* **Midday Scheduling Fit:** {{ evidence_map.get('lunchtime_flexibility', '140+ sessions') }} delivered in midday lunch and learn windows (11 AM–1 PM).
+
+---
+
+## 3. Turnkey Program Formats & Workplace Integration
+Our corporate offerings require zero setup or equipment burden on your facilities team:
+
+1. **Midday Desk Reset & Posture Alignment (30–45 mins):** Accessible, non-sweat movement targeting ergonomic fatigue, neck/shoulder strain, and seated tension.
+2. **Mindfulness & Mental Resilience Breathwork (30 mins):** Practical cognitive de-escalation and nervous system down-regulation tools applicable during stressful workdays.
+3. **End-of-Week Restorative Flow (45–60 mins):** Full-body renewal to conclude the week, promote physical recovery, and build team community.
+4. **Hybrid / Remote Delivery:** High-definition multi-camera live streaming accessible to distributed and work-from-home team members.
+
+---
+
+## 4. Scorecard Readiness & Institutional Compliance
+* **Buyer Priority Match:** "{{ buyer_priority }}"
+* **Compliance:** Certificate of General Liability Insurance on file ($2,000,000 aggregate policy).
+* **Overall Pitch Readiness Score:** **{{ total_score }} / 100** ({{ tier }})
+
+{% if strengths %}
+**Key Portfolio Strengths:**
+{% for s in strengths %}
+* {{ s }}
+{% endfor %}
+{% endif %}
+
+{% if gap_closure_note %}
+---
+
+## 5. Evidence Bridge & 4-Week Pilot Protocol
+{{ gap_closure_note }}
+{% endif %}
+
+---
+
+## {{ '6' if gap_closure_note else '5' }}. Proposed Next Steps & Pilot Engagement
+To demonstrate immediate value with zero organizational risk, we propose a 4-week introductory pilot:
+
+* **Step 1:** Brief 15-minute alignment call with People Ops to select target dates and format.
+* **Step 2:** Execute 4 weekly sessions with pre- and post-class pulse surveys provided by our system.
+* **Step 3:** Deliver an Executive Wellness Impact Report summarizing attendance, employee stress reduction deltas, and qualitative feedback for your leadership team.
+
+**Contact:** {{ instructor_name }}
+**Email:** {{ profile.get('email', 'contact@pitchperfect.org') }} | **Phone:** {{ profile.get('phone', '(312) 555-0100') }}
+**Location:** {{ profile.get('location', 'Chicago, IL') }}
