@@ -26,9 +26,11 @@ class VerifiedBioSet(BaseModel):
 def generate_verified_bios(
     evidence_cards: List[Any],
     instructor_profile: Optional[Dict[str, Any]] = None,
+    perspective: str = "third_person",
 ) -> VerifiedBioSet:
     """
     Generate 50-word, 100-word, and 250-word evidence-grounded bios.
+    Supports 'third_person' (default, industry standard for studios/grants) and 'first_person'.
     """
     prof = {
         "name": "Your Name",
@@ -88,24 +90,45 @@ def generate_verified_bios(
         compliance_phrase = "combines professional movement instruction with"
         vetting_tag = "evidence-grounded facilitation"
 
+    is_1st = (perspective == "first_person")
+
     # 1. Short Bio (~50 words)
-    short_bio = (
-        f"{inst_name} is a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
-        f"Having led {classes_val} with an average participant satisfaction of {rating_val}, "
-        f"{first_name} specializes in accessible, breath-centered movement designed to reduce somatic stress "
-        f"and cultivate welcoming, high-retention community spaces."
-    )
+    if is_1st:
+        short_bio = (
+            f"I am a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
+            f"Having led {classes_val} with an average participant satisfaction of {rating_val}, "
+            f"I specialize in accessible, breath-centered movement designed to reduce somatic stress "
+            f"and cultivate welcoming, high-retention community spaces."
+        )
+    else:
+        short_bio = (
+            f"{inst_name} is a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
+            f"Having led {classes_val} with an average participant satisfaction of {rating_val}, "
+            f"{first_name} specializes in accessible, breath-centered movement designed to reduce somatic stress "
+            f"and cultivate welcoming, high-retention community spaces."
+        )
 
     # 2. Medium Bio (~100 words)
-    medium_bio = (
-        f"{inst_name} is a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
-        f"with {inst_years} years of professional teaching experience. Grounding somatic practices in quantifiable outcomes, "
-        f"{first_name} has facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
-        f"Participant feedback highlights an exceptional track record: students report an average {stress_val} in self-reported stress, "
-        f"a {ret_val} 30-day cohort return rate, and an overall satisfaction rating of {rating_val}. "
-        f"Backed by {vetting_tag}, {first_name} designs turnkey movement experiences "
-        f"that restore nervous system balance and foster sustainable well-being."
-    )
+    if is_1st:
+        medium_bio = (
+            f"I am a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
+            f"with {inst_years} years of professional teaching experience. Grounding somatic practices in quantifiable outcomes, "
+            f"I have facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
+            f"Participant feedback highlights an exceptional track record: students report an average {stress_val} in self-reported stress, "
+            f"a {ret_val} 30-day cohort return rate, and an overall satisfaction rating of {rating_val}. "
+            f"Backed by {vetting_tag}, I design turnkey movement experiences "
+            f"that restore nervous system balance and foster sustainable well-being."
+        )
+    else:
+        medium_bio = (
+            f"{inst_name} is a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
+            f"with {inst_years} years of professional teaching experience. Grounding somatic practices in quantifiable outcomes, "
+            f"{first_name} has facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
+            f"Participant feedback highlights an exceptional track record: students report an average {stress_val} in self-reported stress, "
+            f"a {ret_val} 30-day cohort return rate, and an overall satisfaction rating of {rating_val}. "
+            f"Backed by {vetting_tag}, {first_name} designs turnkey movement experiences "
+            f"that restore nervous system balance and foster sustainable well-being."
+        )
 
     # 3. Grant & Fellowship Impact Statement (~250 words)
     grant_statement = (
