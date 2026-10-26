@@ -44,9 +44,16 @@ def generate_verified_bios(
                 prof[k] = v
 
     inst_name = str(prof["name"]).strip()
+    first_name = inst_name.split()[0] if inst_name else "The instructor"
     inst_disc = str(prof["disciplines"]).strip()
     inst_years = int(prof.get("years_teaching", 3))
     inst_loc = str(prof["location"]).strip()
+    has_insurance = bool(prof.get("insurance", True))
+    has_bg = bool(prof.get("background_check", True))
+    has_sliding = bool(prof.get("sliding_scale", False))
+    languages = prof.get("languages", ["English"])
+    if isinstance(languages, str):
+        languages = [languages]
 
     ev_map = build_evidence_map(evidence_cards)
     rating_val = ev_map.get("overall_rating_avg", "4.77 / 5.0")
@@ -63,11 +70,29 @@ def generate_verified_bios(
         f"30-Day Retention: {ret_val}",
     ]
 
+    # Build credential compliance clause
+    compliance_parts = []
+    if has_insurance:
+        compliance_parts.append("verified general liability insurance")
+    if has_bg:
+        compliance_parts.append("active youth-safe background clearance")
+    if len(languages) > 1:
+        compliance_parts.append(f"multilingual instruction in {', '.join(languages)}")
+    if has_sliding:
+        compliance_parts.append("community sliding-scale pricing")
+
+    if compliance_parts:
+        compliance_phrase = f"combines professional credentials—including {', '.join(compliance_parts)}—with"
+        vetting_tag = "commercial liability insurance and background vetting" if (has_insurance and has_bg) else "verified professional credentials"
+    else:
+        compliance_phrase = "combines professional movement instruction with"
+        vetting_tag = "evidence-grounded facilitation"
+
     # 1. Short Bio (~50 words)
     short_bio = (
         f"{inst_name} is a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
         f"Having led {classes_val} with an average participant satisfaction of {rating_val}, "
-        f"{inst_name.split()[0]} specializes in accessible, breath-centered movement designed to reduce somatic stress "
+        f"{first_name} specializes in accessible, breath-centered movement designed to reduce somatic stress "
         f"and cultivate welcoming, high-retention community spaces."
     )
 
@@ -75,10 +100,10 @@ def generate_verified_bios(
     medium_bio = (
         f"{inst_name} is a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
         f"with {inst_years} years of professional teaching experience. Grounding somatic practices in quantifiable outcomes, "
-        f"{inst_name.split()[0]} has facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
+        f"{first_name} has facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
         f"Participant feedback highlights an exceptional track record: students report an average {stress_val} in self-reported stress, "
         f"a {ret_val} 30-day cohort return rate, and an overall satisfaction rating of {rating_val}. "
-        f"With active commercial liability insurance and youth-safe vetting, {inst_name.split()[0]} designs turnkey movement experiences "
+        f"Backed by {vetting_tag}, {first_name} designs turnkey movement experiences "
         f"that restore nervous system balance and foster sustainable well-being."
     )
 
@@ -86,15 +111,15 @@ def generate_verified_bios(
     grant_statement = (
         f"Instructor Background & Community Impact Statement: {inst_name}\n\n"
         f"{inst_name} is a professional {inst_disc} educator and community wellness facilitator based in {inst_loc}. "
-        f"Over {inst_years} years of active instruction, {inst_name.split()[0]} has developed an evidence-grounded approach to public somatic wellness, "
+        f"Over {inst_years} years of active instruction, {first_name} has developed an evidence-grounded approach to public somatic wellness, "
         f"bridging traditional mindfulness modalities with transparent, measurable participant well-being metrics.\n\n"
-        f"To date, {inst_name.split()[0]} has successfully commanded {classes_val}, engaging hundreds of diverse participants across institutional settings "
+        f"To date, {first_name} has successfully commanded {classes_val}, engaging hundreds of diverse participants across institutional settings "
         f"including public schools, workplace wellness initiatives, and community centers. Ongoing program evaluation demonstrates profound community resonance: "
         f"surveyed attendees report a verified average {stress_val} in perceived stress from class arrival to departure, reflecting immediate down-regulation "
         f"of nervous system fatigue. Furthermore, community trust is evidenced by a {rec_val} peer recommendation rate, a {ret_val} 30-day student retention rate, "
         f"and a sustained institutional satisfaction rating of {rating_val} on standard Likert scales.\n\n"
-        f"As an independent contractor dedicated to equitable access, {inst_name.split()[0]} combines professional compliance—including verified general liability "
-        f"insurance and active background checks—with trauma-informed group facilitation and flexible community pricing. Support from fellowship programs, "
+        f"As an independent contractor dedicated to equitable access, {first_name} {compliance_phrase} "
+        f"trauma-informed group facilitation. Support from fellowship programs, "
         f"residency grants, and institutional partnerships will directly subsidize accessible programming for underrepresented neighborhoods, enabling the expansion "
         f"of restorative wellness initiatives to populations most impacted by chronic stress and healthcare disparities."
     )

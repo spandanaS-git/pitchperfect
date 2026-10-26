@@ -113,22 +113,37 @@ with st.sidebar:
     st.markdown("### 🧘 Instructor Profile")
     st.caption("Enter your details to personalize your proposals.")
     
-    inst_name = st.text_input("Full Name", value="", placeholder="Enter your full name")
-    inst_disciplines = st.text_input("Disciplines", value="", placeholder="e.g. Vinyasa Yoga, Pilates, Breathwork")
-    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, value=1)
-    inst_email = st.text_input("Email", value="", placeholder="e.g. you@example.com")
-    inst_phone = st.text_input("Phone", value="", placeholder="e.g. (312) 555-0123")
-    inst_location = st.text_input("Location / City", value="", placeholder="e.g. Chicago, IL")
+    inst_name = st.text_input("Full Name", value="", placeholder="Enter your full name", key="sb_name")
+    inst_disciplines = st.text_input("Disciplines", value="", placeholder="e.g. Vinyasa Yoga, Pilates, Breathwork", key="sb_disciplines")
+    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, value=1, key="sb_years")
+    inst_email = st.text_input("Email", value="", placeholder="e.g. you@example.com", key="sb_email")
+    inst_phone = st.text_input("Phone", value="", placeholder="e.g. (312) 555-0123", key="sb_phone")
+    inst_location = st.text_input("Location / City", value="", placeholder="e.g. Chicago, IL", key="sb_location")
     
     st.markdown("---")
     st.markdown("#### 🛡️ Credentials & Policies")
-    inst_insurance = st.checkbox("Liability Insurance on File", value=False)
-    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", value=False)
-    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", value=False)
-    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], default=["English"])
+    inst_insurance = st.checkbox("Liability Insurance on File", value=False, key="sb_insurance")
+    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", value=False, key="sb_bg_check")
+    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", value=False, key="sb_sliding")
+    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], default=["English"], key="sb_languages")
     
     st.markdown("---")
     st.caption("PitchPerfect v1.0")
+
+# Centrally construct Instructor Profile from live sidebar inputs
+instructor_profile = {
+    "name": inst_name.strip() if (inst_name and inst_name.strip()) else "Your Name",
+    "disciplines": inst_disciplines.strip() if (inst_disciplines and inst_disciplines.strip()) else "Movement & Mindfulness",
+    "years_teaching": int(inst_years) if inst_years is not None else 1,
+    "email": inst_email.strip() if (inst_email and inst_email.strip()) else "contact@pitchperfect.org",
+    "phone": inst_phone.strip() if (inst_phone and inst_phone.strip()) else "(312) 555-0100",
+    "location": inst_location.strip() if (inst_location and inst_location.strip()) else "Chicago, IL",
+    "insurance": bool(inst_insurance),
+    "background_check": bool(inst_bg_check),
+    "sliding_scale": bool(inst_sliding),
+    "languages": inst_languages or ["English"]
+}
+st.session_state["instructor_profile"] = instructor_profile
 
 # App Header
 st.markdown('<div class="main-header">PitchPerfect: Turn Teaching Data into Partnership Pitches</div>', unsafe_allow_html=True)
@@ -169,6 +184,16 @@ with col_reset:
         st.rerun()
 
 st.markdown("---")
+
+# Centrally compute Evidence Cards for all tabs whenever data is loaded
+cards = []
+if st.session_state["class_df"] is not None or st.session_state["survey_df"] is not None or st.session_state["event_df"] is not None:
+    cards = compute_all_evidence_cards(
+        st.session_state["class_df"],
+        st.session_state["survey_df"],
+        st.session_state["event_df"]
+    )
+st.session_state["cards"] = cards
 
 # Privacy Notice
 st.markdown(
@@ -784,11 +809,12 @@ with tab_pitchkit:
                 with st.expander(f"✉️ {touch.title} ({touch.timing})", expanded=(touch.touch_number == 1)):
                     st.markdown(f"**Subject:** `{touch.subject}`")
                     st.caption(f"💡 **Evidence Highlighted:** {touch.proof_point_highlighted}")
+                    touch_hash = abs(hash(f"{touch.subject}_{touch.body}"))
                     st.text_area(
                         label=f"Email Body - Touch {touch.touch_number}",
                         value=touch.body,
                         height=220,
-                        key=f"outreach_body_{selected_opp_id}_{touch.touch_number}",
+                        key=f"outreach_body_{selected_opp_id}_{touch.touch_number}_{touch_hash}",
                         label_visibility="collapsed"
                     )
 
@@ -811,20 +837,24 @@ with tab_preview:
     if cards:
         bio_set = generate_verified_bios(cards, instructor_profile=instructor_profile)
 
+        short_hash = abs(hash(bio_set.short_bio))
+        med_hash = abs(hash(bio_set.medium_bio))
+        grant_hash = abs(hash(bio_set.grant_statement))
+
         col_b1, col_b2 = st.columns(2)
         with col_b1:
             st.markdown(f"##### 🏷️ Short Bio ({bio_set.word_counts['short_bio']} words)")
             st.caption("For studio schedule bios, Instagram, and event flyers:")
-            st.text_area("Short Bio", value=bio_set.short_bio, height=120, key="bio_short_area", label_visibility="collapsed")
+            st.text_area("Short Bio", value=bio_set.short_bio, height=120, key=f"bio_short_{short_hash}", label_visibility="collapsed")
 
         with col_b2:
             st.markdown(f"##### 💼 Medium Bio ({bio_set.word_counts['medium_bio']} words)")
             st.caption("For corporate proposals, conference speaker notes, and festival lineups:")
-            st.text_area("Medium Bio", value=bio_set.medium_bio, height=120, key="bio_medium_area", label_visibility="collapsed")
+            st.text_area("Medium Bio", value=bio_set.medium_bio, height=120, key=f"bio_medium_{med_hash}", label_visibility="collapsed")
 
         st.markdown(f"##### 🏛️ Grant & Fellowship Impact Statement ({bio_set.word_counts['grant_statement']} words)")
         st.caption("For ChiEAC fellowship portfolios, community health grants, and foundation proposals:")
-        st.text_area("Grant Statement", value=bio_set.grant_statement, height=220, key="bio_grant_area", label_visibility="collapsed")
+        st.text_area("Grant Statement", value=bio_set.grant_statement, height=220, key=f"bio_grant_{grant_hash}", label_visibility="collapsed")
 
         all_bios_text = (
             f"=== VERIFIED INSTRUCTOR BIOS: {bio_set.instructor_name} ===\n\n"
