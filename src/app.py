@@ -40,6 +40,8 @@ from pitchkit import (
     PitchKit
 )
 from export_docx import export_pitch_kit_to_docx
+from outreach import generate_outreach_sequence
+from bio_builder import generate_verified_bios
 import zipfile
 import io
 
@@ -184,7 +186,7 @@ tab_upload, tab_summary, tab_evidence, tab_scorecard, tab_pitchkit, tab_preview 
     "📇 3. Evidence Cards (25 Metrics)",
     "🎯 4. Opportunity Scorecards & Gap Plan",
     "📑 5. Tailored Pitch Kits",
-    "👀 6. Verified Data Preview"
+    "📋 6. Verified Bios & Data Preview"
 ])
 
 with tab_upload:
@@ -713,56 +715,136 @@ with tab_pitchkit:
         else:
             st.warning("⚠️ **Evidence Bridge Incorporated:** Readiness score is currently below 85. PitchPerfect has automatically tailored a structured pilot and quality assurance bridge into this proposal.")
 
-        # Action Buttons (DOCX and TXT download side-by-side)
-        col_docx, col_txt, col_space = st.columns([1.5, 1.5, 2.5])
-        with col_docx:
-            docx_data = export_pitch_kit_to_docx(pitch_kit)
-            st.download_button(
-                "📄 Download Word Doc (.docx)",
-                data=docx_data,
-                file_name=f"PitchKit_{selected_opp_id}.docx",
-                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                type="primary",
-                use_container_width=True
+        # Sub-tabs: Formal Proposal Document vs. 3-Touch Cold Email Outreach
+        subtab_proposal, subtab_outreach = st.tabs(["📄 1-Page Word Proposal", "📧 3-Touch Cold Outreach Emails"])
+
+        with subtab_proposal:
+            # Action Buttons (DOCX and TXT download side-by-side)
+            col_docx, col_txt, col_space = st.columns([1.5, 1.5, 2.5])
+            with col_docx:
+                docx_data = export_pitch_kit_to_docx(pitch_kit)
+                st.download_button(
+                    "📄 Download Word Doc (.docx)",
+                    data=docx_data,
+                    file_name=f"PitchKit_{selected_opp_id}.docx",
+                    mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    type="primary",
+                    use_container_width=True
+                )
+            with col_txt:
+                st.download_button(
+                    "📝 Download Text (.txt)",
+                    data=pitch_kit.rendered_text,
+                    file_name=f"PitchKit_{selected_opp_id}.txt",
+                    mime="text/plain",
+                    use_container_width=True
+                )
+
+            st.markdown("---")
+
+            # Layout: Left column for Document Preview, Right column for Top Evidence Highlights
+            col_preview, col_ev_side = st.columns([1.5, 1.0])
+
+            with col_preview:
+                st.markdown("#### 📄 Document Preview")
+                with st.container(border=True):
+                    st.markdown(pitch_kit.rendered_text)
+
+            with col_ev_side:
+                st.markdown("#### 📇 Top Evidence Dossier Included")
+                st.caption("Proof points automatically woven into this buyer-tailored pitch proposal:")
+                for ev in pitch_kit.top_evidence:
+                    st.markdown(f"""
+                    <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:12px; margin-bottom:10px;">
+                        <div style="font-size:0.75rem; font-weight:700; color:#0369A1; text-transform:uppercase;">{ev.get('source_file', 'Verified Log')}</div>
+                        <div style="font-size:0.85rem; font-weight:600; color:#334155; margin-top:2px;">{ev.get('label', '')}</div>
+                        <div style="font-size:1.3rem; font-weight:800; color:#0F172A; margin:4px 0;">{ev.get('formatted_value', '')}</div>
+                        <div style="font-size:0.75rem; color:#64748B;">📅 {ev.get('date_range', 'N/A')} • 👥 Sample: {ev.get('sample_size', 'N/A')}</div>
+                        <div style="font-size:0.72rem; color:#475569; font-style:italic; border-top:1px dashed #CBD5E1; padding-top:4px; margin-top:4px;">ℹ️ {ev.get('method_note', '')}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+                if pitch_kit.gap_closure_note:
+                    st.markdown("#### 🛠️ Evidence Bridge Status")
+                    st.info(f"Because current score is **{pitch_kit.total_score}/100**, the pitch includes a 30-day pilot bridge addressing: {', '.join(pitch_kit.scorecard_summary.get('gaps', ['baseline tracking'])[:2])}.")
+
+        with subtab_outreach:
+            outreach_seq = generate_outreach_sequence(
+                selected_opp_id,
+                cards,
+                scorecard=scorecard_res,
+                instructor_profile=instructor_profile
             )
-        with col_txt:
+
+            st.markdown(f"#### 🎯 Cold Outreach Campaign: {pitch_kit.opportunity_name}")
+            st.markdown(f"**Target Decision Maker:** `{outreach_seq.target_buyer}`")
+            st.caption("A structured 3-step sequence engineered for high response rates. Copy and paste directly into Gmail, Outlook, or LinkedIn.")
+
+            for touch in outreach_seq.touches:
+                with st.expander(f"✉️ {touch.title} ({touch.timing})", expanded=(touch.touch_number == 1)):
+                    st.markdown(f"**Subject:** `{touch.subject}`")
+                    st.caption(f"💡 **Evidence Highlighted:** {touch.proof_point_highlighted}")
+                    st.text_area(
+                        label=f"Email Body - Touch {touch.touch_number}",
+                        value=touch.body,
+                        height=220,
+                        key=f"outreach_body_{selected_opp_id}_{touch.touch_number}",
+                        label_visibility="collapsed"
+                    )
+
+            # Combined outreach text download
+            all_emails_text = f"=== 3-TOUCH COLD OUTREACH: {pitch_kit.opportunity_name.upper()} ===\nTarget Buyer: {outreach_seq.target_buyer}\n\n"
+            for t in outreach_seq.touches:
+                all_emails_text += f"--- {t.title} ({t.timing}) ---\nSubject: {t.subject}\n\n{t.body}\n\n"
+            
             st.download_button(
-                "📝 Download Text (.txt)",
-                data=pitch_kit.rendered_text,
-                file_name=f"PitchKit_{selected_opp_id}.txt",
-                mime="text/plain",
-                use_container_width=True
+                "📥 Download Outreach Emails (.txt)",
+                data=all_emails_text,
+                file_name=f"Outreach_Emails_{selected_opp_id}.txt",
+                mime="text/plain"
             )
-
-        st.markdown("---")
-
-        # Layout: Left column for Document Preview, Right column for Top Evidence Highlights
-        col_preview, col_ev_side = st.columns([1.5, 1.0])
-
-        with col_preview:
-            st.markdown("#### 📄 Document Preview")
-            with st.container(border=True):
-                st.markdown(pitch_kit.rendered_text)
-
-        with col_ev_side:
-            st.markdown("#### 📇 Top Evidence Dossier Included")
-            st.caption("Proof points automatically woven into this buyer-tailored pitch proposal:")
-            for ev in pitch_kit.top_evidence:
-                st.markdown(f"""
-                <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:12px; margin-bottom:10px;">
-                    <div style="font-size:0.75rem; font-weight:700; color:#0369A1; text-transform:uppercase;">{ev.get('source_file', 'Verified Log')}</div>
-                    <div style="font-size:0.85rem; font-weight:600; color:#334155; margin-top:2px;">{ev.get('label', '')}</div>
-                    <div style="font-size:1.3rem; font-weight:800; color:#0F172A; margin:4px 0;">{ev.get('formatted_value', '')}</div>
-                    <div style="font-size:0.75rem; color:#64748B;">📅 {ev.get('date_range', 'N/A')} • 👥 Sample: {ev.get('sample_size', 'N/A')}</div>
-                    <div style="font-size:0.72rem; color:#475569; font-style:italic; border-top:1px dashed #CBD5E1; padding-top:4px; margin-top:4px;">ℹ️ {ev.get('method_note', '')}</div>
-                </div>
-                """, unsafe_allow_html=True)
-
-            if pitch_kit.gap_closure_note:
-                st.markdown("#### 🛠️ Evidence Bridge Status")
-                st.info(f"Because current score is **{pitch_kit.total_score}/100**, the pitch includes a 30-day pilot bridge addressing: {', '.join(pitch_kit.scorecard_summary.get('gaps', ['baseline tracking'])[:2])}.")
 
 with tab_preview:
+    st.subheader("Verified Bios & Grant Application Copy")
+    st.caption("Evidence-grounded professional bios and impact statements automatically generated from your verified data cards.")
+
+    if cards:
+        bio_set = generate_verified_bios(cards, instructor_profile=instructor_profile)
+
+        col_b1, col_b2 = st.columns(2)
+        with col_b1:
+            st.markdown(f"##### 🏷️ Short Bio ({bio_set.word_counts['short_bio']} words)")
+            st.caption("For studio schedule bios, Instagram, and event flyers:")
+            st.text_area("Short Bio", value=bio_set.short_bio, height=120, key="bio_short_area", label_visibility="collapsed")
+
+        with col_b2:
+            st.markdown(f"##### 💼 Medium Bio ({bio_set.word_counts['medium_bio']} words)")
+            st.caption("For corporate proposals, conference speaker notes, and festival lineups:")
+            st.text_area("Medium Bio", value=bio_set.medium_bio, height=120, key="bio_medium_area", label_visibility="collapsed")
+
+        st.markdown(f"##### 🏛️ Grant & Fellowship Impact Statement ({bio_set.word_counts['grant_statement']} words)")
+        st.caption("For ChiEAC fellowship portfolios, community health grants, and foundation proposals:")
+        st.text_area("Grant Statement", value=bio_set.grant_statement, height=220, key="bio_grant_area", label_visibility="collapsed")
+
+        all_bios_text = (
+            f"=== VERIFIED INSTRUCTOR BIOS: {bio_set.instructor_name} ===\n\n"
+            f"--- SHORT BIO ({bio_set.word_counts['short_bio']} words) ---\n"
+            f"{bio_set.short_bio}\n\n"
+            f"--- MEDIUM BIO ({bio_set.word_counts['medium_bio']} words) ---\n"
+            f"{bio_set.medium_bio}\n\n"
+            f"--- GRANT & FELLOWSHIP STATEMENT ({bio_set.word_counts['grant_statement']} words) ---\n"
+            f"{bio_set.grant_statement}\n"
+        )
+        st.download_button(
+            "📋 Download All Verified Bios (.txt)",
+            data=all_bios_text,
+            file_name=f"Verified_Bios_{bio_set.instructor_name.replace(' ', '_')}.txt",
+            mime="text/plain"
+        )
+    else:
+        st.info("Upload your spreadsheets or click 'Test Drive with Demo Data' to generate verified bios.")
+
+    st.markdown("---")
     st.subheader("Verified Data Preview (PII-Scrubbed)")
     if st.session_state["class_df"] is not None:
         st.markdown("##### 🧘 Class History Sample (First 10 Rows)")
