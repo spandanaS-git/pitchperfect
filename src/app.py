@@ -192,57 +192,62 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+def load_demo_callback():
+    demo_dir = os.path.join(os.path.dirname(__file__), "..", "data", "demo")
+    c_path = os.path.join(demo_dir, "class_history.csv")
+    s_path = os.path.join(demo_dir, "survey_responses.csv")
+    e_path = os.path.join(demo_dir, "event_outcomes.csv")
+    
+    if os.path.exists(c_path) and os.path.exists(s_path) and os.path.exists(e_path):
+        st.session_state["uploader_key"] += 1
+        st.session_state["class_df"] = pd.read_csv(c_path)
+        st.session_state["survey_df"] = pd.read_csv(s_path)
+        st.session_state["event_df"] = pd.read_csv(e_path)
+        st.session_state["is_demo"] = True
+
+        # Auto-populate Demo Profile in Sidebar
+        st.session_state["sb_name"] = "Mariana"
+        st.session_state["sb_disciplines"] = "Vinyasa Yoga, Breathwork, Pilates"
+        st.session_state["sb_years"] = 4
+        st.session_state["sb_email"] = "mariana@gmail.com"
+        st.session_state["sb_phone"] = "(312) 555-0140"
+        st.session_state["sb_location"] = "Houston, Texas"
+        st.session_state["sb_insurance"] = True
+        st.session_state["sb_bg_check"] = True
+        st.session_state["sb_sliding"] = True
+        st.session_state["sb_languages"] = ["English", "Spanish"]
+
+def clear_data_callback():
+    st.session_state["uploader_key"] += 1
+    st.session_state["class_df"] = None
+    st.session_state["survey_df"] = None
+    st.session_state["event_df"] = None
+    st.session_state["is_demo"] = False
+
+    # Reset Sidebar Profile to Empty
+    st.session_state["sb_name"] = ""
+    st.session_state["sb_disciplines"] = ""
+    st.session_state["sb_years"] = 1
+    st.session_state["sb_email"] = ""
+    st.session_state["sb_phone"] = ""
+    st.session_state["sb_location"] = ""
+    st.session_state["sb_insurance"] = False
+    st.session_state["sb_bg_check"] = False
+    st.session_state["sb_sliding"] = False
+    st.session_state["sb_languages"] = ["English"]
+
 # Demo Mode Quick Toggle
 col_demo, col_reset = st.columns([4, 1])
 with col_demo:
-    if st.button("⚡ Test Drive with 18-Month Demo Data (529 Classes, 150 Surveys, 20 Events)", type="primary", use_container_width=True):
-        demo_dir = os.path.join(os.path.dirname(__file__), "..", "data", "demo")
-        c_path = os.path.join(demo_dir, "class_history.csv")
-        s_path = os.path.join(demo_dir, "survey_responses.csv")
-        e_path = os.path.join(demo_dir, "event_outcomes.csv")
-        
-        if os.path.exists(c_path) and os.path.exists(s_path) and os.path.exists(e_path):
-            st.session_state["uploader_key"] += 1
-            st.session_state["class_df"] = pd.read_csv(c_path)
-            st.session_state["survey_df"] = pd.read_csv(s_path)
-            st.session_state["event_df"] = pd.read_csv(e_path)
-            st.session_state["is_demo"] = True
-
-            # Auto-populate Demo Profile in Sidebar
-            st.session_state["sb_name"] = "Mariana"
-            st.session_state["sb_disciplines"] = "Vinyasa Yoga, Breathwork, Pilates"
-            st.session_state["sb_years"] = 4
-            st.session_state["sb_email"] = "mariana@gmail.com"
-            st.session_state["sb_phone"] = "(312) 555-0140"
-            st.session_state["sb_location"] = "Houston, Texas"
-            st.session_state["sb_insurance"] = True
-            st.session_state["sb_bg_check"] = True
-            st.session_state["sb_sliding"] = True
-            st.session_state["sb_languages"] = ["English", "Spanish"]
-            st.rerun()
-        else:
-            st.error("Demo files not found. Run scripts/generate_demo_data.py first.")
+    st.button(
+        "⚡ Test Drive with 18-Month Demo Data (529 Classes, 150 Surveys, 20 Events)",
+        type="primary",
+        use_container_width=True,
+        on_click=load_demo_callback
+    )
 
 with col_reset:
-    if st.button("🔄 Clear Data", use_container_width=True):
-        st.session_state["uploader_key"] += 1
-        st.session_state["class_df"] = None
-        st.session_state["survey_df"] = None
-        st.session_state["event_df"] = None
-        st.session_state["is_demo"] = False
-
-        # Reset Sidebar Profile to Empty
-        st.session_state["sb_name"] = ""
-        st.session_state["sb_disciplines"] = ""
-        st.session_state["sb_years"] = 1
-        st.session_state["sb_email"] = ""
-        st.session_state["sb_phone"] = ""
-        st.session_state["sb_location"] = ""
-        st.session_state["sb_insurance"] = False
-        st.session_state["sb_bg_check"] = False
-        st.session_state["sb_sliding"] = False
-        st.session_state["sb_languages"] = ["English"]
-        st.rerun()
+    st.button("🔄 Clear Data", use_container_width=True, on_click=clear_data_callback)
 
 st.markdown("---")
 
