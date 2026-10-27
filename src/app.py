@@ -212,7 +212,7 @@ with col_demo:
             st.session_state["sb_name"] = "Mariana"
             st.session_state["sb_disciplines"] = "Vinyasa Yoga, Breathwork, Pilates"
             st.session_state["sb_years"] = 4
-            st.session_state["sb_email"] = "mariana@chieac.org"
+            st.session_state["sb_email"] = "mariana@gmail.com"
             st.session_state["sb_phone"] = "(312) 555-0140"
             st.session_state["sb_location"] = "Houston, Texas"
             st.session_state["sb_insurance"] = True
