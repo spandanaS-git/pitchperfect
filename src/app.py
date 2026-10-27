@@ -837,22 +837,11 @@ with tab_pitchkit:
             )
 
 with tab_preview:
-    col_btitle, col_bpersp = st.columns([2.2, 1.8])
-    with col_btitle:
-        st.subheader("Verified Bios & Grant Application Copy")
-        st.caption("Evidence-grounded professional bios and impact statements automatically generated from your verified data cards.")
-    with col_bpersp:
-        bio_perspective_sel = st.radio(
-            "Voice & Perspective:",
-            ["First-Person (Recommended — Personal & Direct)", "Third-Person (Institutional Roster & Bio Binder)"],
-            index=0,
-            horizontal=True,
-            key="sb_bio_persp"
-        )
-        persp_mode = "third_person" if "Third-Person" in bio_perspective_sel else "first_person"
+    st.subheader("Verified Bios & Grant Application Copy")
+    st.caption("Evidence-grounded first-person bios and impact statements automatically generated from your verified data cards.")
 
     if cards:
-        bio_set = generate_verified_bios(cards, instructor_profile=instructor_profile, perspective=persp_mode)
+        bio_set = generate_verified_bios(cards, instructor_profile=instructor_profile)
 
         short_hash = abs(hash(bio_set.short_bio))
         med_hash = abs(hash(bio_set.medium_bio))

@@ -26,11 +26,10 @@ class VerifiedBioSet(BaseModel):
 def generate_verified_bios(
     evidence_cards: List[Any],
     instructor_profile: Optional[Dict[str, Any]] = None,
-    perspective: str = "third_person",
+    perspective: str = "first_person",
 ) -> VerifiedBioSet:
     """
-    Generate 50-word, 100-word, and 250-word evidence-grounded bios.
-    Supports 'third_person' (default, industry standard for studios/grants) and 'first_person'.
+    Generate 50-word, 100-word, and 250-word evidence-grounded first-person bios and grant copy.
     """
     prof = {
         "name": "Your Name",
