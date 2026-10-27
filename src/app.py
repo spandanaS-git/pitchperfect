@@ -107,25 +107,45 @@ if "is_demo" not in st.session_state:
     st.session_state["is_demo"] = False
 if "uploader_key" not in st.session_state:
     st.session_state["uploader_key"] = 0
+if "sb_name" not in st.session_state:
+    st.session_state["sb_name"] = ""
+if "sb_disciplines" not in st.session_state:
+    st.session_state["sb_disciplines"] = ""
+if "sb_years" not in st.session_state:
+    st.session_state["sb_years"] = 1
+if "sb_email" not in st.session_state:
+    st.session_state["sb_email"] = ""
+if "sb_phone" not in st.session_state:
+    st.session_state["sb_phone"] = ""
+if "sb_location" not in st.session_state:
+    st.session_state["sb_location"] = ""
+if "sb_insurance" not in st.session_state:
+    st.session_state["sb_insurance"] = False
+if "sb_bg_check" not in st.session_state:
+    st.session_state["sb_bg_check"] = False
+if "sb_sliding" not in st.session_state:
+    st.session_state["sb_sliding"] = False
+if "sb_languages" not in st.session_state:
+    st.session_state["sb_languages"] = ["English"]
 
 # Sidebar - Instructor Profile & Info
 with st.sidebar:
     st.markdown("### 🧘 Instructor Profile")
     st.caption("Enter your details to personalize your proposals.")
     
-    inst_name = st.text_input("Full Name", value="", placeholder="Enter your full name", key="sb_name")
-    inst_disciplines = st.text_input("Disciplines", value="", placeholder="e.g. Vinyasa Yoga, Pilates, Breathwork", key="sb_disciplines")
-    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, value=1, key="sb_years")
-    inst_email = st.text_input("Email", value="", placeholder="e.g. you@example.com", key="sb_email")
-    inst_phone = st.text_input("Phone", value="", placeholder="e.g. (312) 555-0123", key="sb_phone")
-    inst_location = st.text_input("Location / City", value="", placeholder="e.g. Chicago, IL", key="sb_location")
+    inst_name = st.text_input("Full Name", placeholder="Enter your full name", key="sb_name")
+    inst_disciplines = st.text_input("Disciplines", placeholder="e.g. Vinyasa Yoga, Pilates, Breathwork", key="sb_disciplines")
+    inst_years = st.number_input("Years Teaching", min_value=0, max_value=40, key="sb_years")
+    inst_email = st.text_input("Email", placeholder="e.g. you@example.com", key="sb_email")
+    inst_phone = st.text_input("Phone", placeholder="e.g. (312) 555-0123", key="sb_phone")
+    inst_location = st.text_input("Location / City", placeholder="e.g. Houston, Texas", key="sb_location")
     
     st.markdown("---")
     st.markdown("#### 🛡️ Credentials & Policies")
-    inst_insurance = st.checkbox("Liability Insurance on File", value=False, key="sb_insurance")
-    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", value=False, key="sb_bg_check")
-    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", value=False, key="sb_sliding")
-    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], default=["English"], key="sb_languages")
+    inst_insurance = st.checkbox("Liability Insurance on File", key="sb_insurance")
+    inst_bg_check = st.checkbox("Background Check on File (Youth Safe)", key="sb_bg_check")
+    inst_sliding = st.checkbox("Offers Sliding Scale / Community Rate", key="sb_sliding")
+    inst_languages = st.multiselect("Languages", ["English", "Spanish", "French", "American Sign Language", "Other"], key="sb_languages")
     
     st.markdown("---")
     if st.button("🔄 Apply Profile to Pitches & Bios", type="primary", use_container_width=True):
@@ -187,6 +207,18 @@ with col_demo:
             st.session_state["survey_df"] = pd.read_csv(s_path)
             st.session_state["event_df"] = pd.read_csv(e_path)
             st.session_state["is_demo"] = True
+
+            # Auto-populate Demo Profile in Sidebar
+            st.session_state["sb_name"] = "Mariana"
+            st.session_state["sb_disciplines"] = "Vinyasa Yoga, Breathwork, Pilates"
+            st.session_state["sb_years"] = 4
+            st.session_state["sb_email"] = "mariana@chieac.org"
+            st.session_state["sb_phone"] = "(312) 555-0140"
+            st.session_state["sb_location"] = "Houston, Texas"
+            st.session_state["sb_insurance"] = True
+            st.session_state["sb_bg_check"] = True
+            st.session_state["sb_sliding"] = True
+            st.session_state["sb_languages"] = ["English", "Spanish"]
             st.rerun()
         else:
             st.error("Demo files not found. Run scripts/generate_demo_data.py first.")
@@ -198,6 +230,18 @@ with col_reset:
         st.session_state["survey_df"] = None
         st.session_state["event_df"] = None
         st.session_state["is_demo"] = False
+
+        # Reset Sidebar Profile to Empty
+        st.session_state["sb_name"] = ""
+        st.session_state["sb_disciplines"] = ""
+        st.session_state["sb_years"] = 1
+        st.session_state["sb_email"] = ""
+        st.session_state["sb_phone"] = ""
+        st.session_state["sb_location"] = ""
+        st.session_state["sb_insurance"] = False
+        st.session_state["sb_bg_check"] = False
+        st.session_state["sb_sliding"] = False
+        st.session_state["sb_languages"] = ["English"]
         st.rerun()
 
 st.markdown("---")
