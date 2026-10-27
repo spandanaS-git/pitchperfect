@@ -151,18 +151,6 @@ with st.sidebar:
     if st.button("🔄 Apply Profile to Pitches & Bios", type="primary", use_container_width=True):
         st.rerun()
 
-    # Live Confirmation Badge in Sidebar
-    active_loc = inst_location.strip() if (inst_location and inst_location.strip()) else "Chicago, IL"
-    active_disc = inst_disciplines.strip() if (inst_disciplines and inst_disciplines.strip()) else "Movement & Mindfulness"
-    active_nm = inst_name.strip() if (inst_name and inst_name.strip()) else "Your Name"
-    st.info(
-        f"**Active Profile:**\n\n"
-        f"👤 {active_nm}\n\n"
-        f"🧘 {active_disc}\n\n"
-        f"📍 {active_loc} • ⏳ {int(inst_years)} yr(s)"
-    )
-
-    st.markdown("---")
     st.caption("PitchPerfect v1.0")
 
 # Centrally construct Instructor Profile from live sidebar inputs
