@@ -7,10 +7,6 @@ font = "sans serif"
 
 [server]
 headless = true
-runOnSave = true
-fileWatcherType = "watchdog"
-enableCORS = true
-enableXsrfProtection = false
 maxUploadSize = 200
 
 [browser]
