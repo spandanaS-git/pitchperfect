@@ -84,18 +84,20 @@ def generate_verified_bios(
         compliance_parts.append("community sliding-scale pricing")
 
     if compliance_parts:
-        compliance_phrase = f"combines professional credentials—including {', '.join(compliance_parts)}—with"
+        compliance_phrase = f"combines professional credentials (including {', '.join(compliance_parts)}) with"
+        compliance_phrase_1st = f"combine professional credentials (including {', '.join(compliance_parts)}) with"
         vetting_tag = "commercial liability insurance and background vetting" if (has_insurance and has_bg) else "verified professional credentials"
     else:
         compliance_phrase = "combines professional movement instruction with"
+        compliance_phrase_1st = "combine professional movement instruction with"
         vetting_tag = "evidence-grounded facilitation"
 
-    is_1st = (perspective == "first_person")
+    is_1st = (perspective != "third_person")
 
     # 1. Short Bio (~50 words)
     if is_1st:
         short_bio = (
-            f"I am a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
+            f"I am {inst_name}, a {inst_loc}-based {inst_disc} educator with {inst_years} years of experience. "
             f"Having led {classes_val} with an average participant satisfaction of {rating_val}, "
             f"I specialize in accessible, breath-centered movement designed to reduce somatic stress "
             f"and cultivate welcoming, high-retention community spaces."
@@ -111,7 +113,7 @@ def generate_verified_bios(
     # 2. Medium Bio (~100 words)
     if is_1st:
         medium_bio = (
-            f"I am a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
+            f"I am {inst_name}, a {inst_loc}-based movement and wellness instructor specializing in {inst_disc} "
             f"with {inst_years} years of professional teaching experience. Grounding somatic practices in quantifiable outcomes, "
             f"I have facilitated {classes_val} across boutique studios, corporate wellness programs, and community fieldhouses. "
             f"Participant feedback highlights an exceptional track record: students report an average {stress_val} in self-reported stress, "
@@ -130,22 +132,39 @@ def generate_verified_bios(
             f"that restore nervous system balance and foster sustainable well-being."
         )
 
-    # 3. Grant & Fellowship Impact Statement (~250 words)
-    grant_statement = (
-        f"Instructor Background & Community Impact Statement: {inst_name}\n\n"
-        f"{inst_name} is a professional {inst_disc} educator and community wellness facilitator based in {inst_loc}. "
-        f"Over {inst_years} years of active instruction, {first_name} has developed an evidence-grounded approach to public somatic wellness, "
-        f"bridging traditional mindfulness modalities with transparent, measurable participant well-being metrics.\n\n"
-        f"To date, {first_name} has successfully commanded {classes_val}, engaging hundreds of diverse participants across institutional settings "
-        f"including public schools, workplace wellness initiatives, and community centers. Ongoing program evaluation demonstrates profound community resonance: "
-        f"surveyed attendees report a verified average {stress_val} in perceived stress from class arrival to departure, reflecting immediate down-regulation "
-        f"of nervous system fatigue. Furthermore, community trust is evidenced by a {rec_val} peer recommendation rate, a {ret_val} 30-day student retention rate, "
-        f"and a sustained institutional satisfaction rating of {rating_val} on standard Likert scales.\n\n"
-        f"As an independent contractor dedicated to equitable access, {first_name} {compliance_phrase} "
-        f"trauma-informed group facilitation. Support from fellowship programs, "
-        f"residency grants, and institutional partnerships will directly subsidize accessible programming for underrepresented neighborhoods, enabling the expansion "
-        f"of restorative wellness initiatives to populations most impacted by chronic stress and healthcare disparities."
-    )
+    # 3. Grant & Fellowship Impact Statement (~200-250 words)
+    if is_1st:
+        grant_statement = (
+            f"Community Impact & Fellowship Statement: {inst_name}\n\n"
+            f"As a professional {inst_disc} educator and community wellness facilitator based in {inst_loc}, "
+            f"over {inst_years} years of active instruction I have developed an evidence-grounded approach to public somatic wellness, "
+            f"bridging traditional mindfulness modalities with transparent, measurable participant well-being metrics.\n\n"
+            f"To date, I have successfully facilitated {classes_val}, engaging hundreds of diverse participants across institutional settings "
+            f"including public schools, workplace wellness initiatives, and community centers. Ongoing program evaluation demonstrates profound community resonance: "
+            f"surveyed attendees report a verified average {stress_val} in perceived stress from class arrival to departure, reflecting immediate down-regulation "
+            f"of nervous system fatigue. Furthermore, community trust is evidenced by a {rec_val} peer recommendation rate, a {ret_val} 30-day student retention rate, "
+            f"and a sustained institutional satisfaction rating of {rating_val} on standard Likert scales.\n\n"
+            f"As an independent contractor dedicated to equitable access, I {compliance_phrase_1st} "
+            f"trauma-informed group facilitation. Support from fellowship programs, "
+            f"residency grants, and institutional partnerships will directly subsidize accessible programming for underrepresented neighborhoods, enabling the expansion "
+            f"of restorative wellness initiatives to populations most impacted by chronic stress and healthcare disparities."
+        )
+    else:
+        grant_statement = (
+            f"Instructor Background & Community Impact Statement: {inst_name}\n\n"
+            f"{inst_name} is a professional {inst_disc} educator and community wellness facilitator based in {inst_loc}. "
+            f"Over {inst_years} years of active instruction, {first_name} has developed an evidence-grounded approach to public somatic wellness, "
+            f"bridging traditional mindfulness modalities with transparent, measurable participant well-being metrics.\n\n"
+            f"To date, {first_name} has successfully commanded {classes_val}, engaging hundreds of diverse participants across institutional settings "
+            f"including public schools, workplace wellness initiatives, and community centers. Ongoing program evaluation demonstrates profound community resonance: "
+            f"surveyed attendees report a verified average {stress_val} in perceived stress from class arrival to departure, reflecting immediate down-regulation "
+            f"of nervous system fatigue. Furthermore, community trust is evidenced by a {rec_val} peer recommendation rate, a {ret_val} 30-day student retention rate, "
+            f"and a sustained institutional satisfaction rating of {rating_val} on standard Likert scales.\n\n"
+            f"As an independent contractor dedicated to equitable access, {first_name} {compliance_phrase} "
+            f"trauma-informed group facilitation. Support from fellowship programs, "
+            f"residency grants, and institutional partnerships will directly subsidize accessible programming for underrepresented neighborhoods, enabling the expansion "
+            f"of restorative wellness initiatives to populations most impacted by chronic stress and healthcare disparities."
+        )
 
     word_counts = {
         "short_bio": len(short_bio.split()),

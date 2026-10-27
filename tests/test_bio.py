@@ -61,8 +61,9 @@ def test_metric_citations_in_grant_statement(demo_evidence):
 
 def test_first_person_perspective(demo_evidence):
     bios_1st = generate_verified_bios(demo_evidence, perspective="first_person")
-    assert bios_1st.short_bio.startswith("I am a")
-    assert bios_1st.medium_bio.startswith("I am a")
+    assert bios_1st.short_bio.startswith("I am")
+    assert bios_1st.medium_bio.startswith("I am")
     assert "I specialize" in bios_1st.short_bio
     assert "I design" in bios_1st.medium_bio
+    assert "Community Impact & Fellowship Statement" in bios_1st.grant_statement
 

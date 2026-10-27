@@ -844,12 +844,12 @@ with tab_preview:
     with col_bpersp:
         bio_perspective_sel = st.radio(
             "Voice & Perspective:",
-            ["Third-Person (Studios, Festivals & Grants)", "First-Person (Website & Socials)"],
+            ["First-Person (Recommended — Personal & Direct)", "Third-Person (Institutional Roster & Bio Binder)"],
             index=0,
             horizontal=True,
             key="sb_bio_persp"
         )
-        persp_mode = "first_person" if "First-Person" in bio_perspective_sel else "third_person"
+        persp_mode = "third_person" if "Third-Person" in bio_perspective_sel else "first_person"
 
     if cards:
         bio_set = generate_verified_bios(cards, instructor_profile=instructor_profile, perspective=persp_mode)
